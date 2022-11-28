@@ -9,8 +9,9 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
 ### Release 1.0
 
 - [x] 🚧 AR: Remove Backend
-- [ ] 🚧 AR: Save Data in indexedDb
-- [ ] 🚧 AR: Cleanup Knowledge Base
-- [ ] 🚧 AR: Publish in App Store
+- [x] 🚧 AR: Cleanup Knowledge Base
 - [ ] 🚀 Feature: Make Learning Algorythm (Look up how its called)
+- [ ] 🚀 Feature: Save Data in indexedDb
+- [ ] 🐛 Fix: Remove unused pages
+- [ ] 🚧 AR: Publish in App Store
 
