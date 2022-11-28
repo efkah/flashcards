@@ -24,10 +24,11 @@ After building, it should be possible to deploy from `/flashcards-ui/` with `gcl
 Make sure to be authenticated and logged into to the correct project.
 The nginx configuration `nginx/default.conf` here is just as important as the `Dockerfile`
 
-### Dockerize
+### Build a Docker Container
+⚠ In `nginx/default.conf` change the varialbe `$PORT` to `8080` if you build locally, change back for gcloud/pipeline deployment.
 
-There is a `Dockerfile` which can be built by running `docker build -t flashcards-ui .`.
-
-Run `docker run -it --rm -p 80:8080 flashcards-ui` to take a look at the nginx output
-
-If everything is okay, the page http://0.0.0.0:80 should be available.
+1. Make just `flashcards-ui/dist` has files, f.e. by running `npm run build`.
+2. Change working dir to `flashcards-ui`.
+3. There is a `Dockerfile` which can be built by running `docker build -t flashcards-ui .`.
+4. Run `docker run -it --rm -p 80:8080 flashcards-ui` to take a look at the nginx output.
+5. If everything is okay, the page `http://0.0.0.0:80` should be available.
