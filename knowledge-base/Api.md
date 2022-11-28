@@ -16,6 +16,7 @@ The files at root are needed to re enable local development and Gcloud Builds
 - `docker-compose.yml` - contains additional services to for development, like adminer and database servers
 - `requirements.txt` - python package manager file
 - `Dockerfile` - Build an start a python based docker image
+- `dist/flashcards/.dockerignore` - used for setting up docker container for gcloud
 
 ### App Host
 This Backend at one point hosted the app, since there were problems with the trust in the gcloud cluster.
