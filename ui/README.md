@@ -2,7 +2,10 @@
 
 ## Development server
 
-Run `npm start` for a dev server which takes proxy-config into account. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm ci` once. 
+Run `npm start` for a dev server which takes proxy-config into account. 
+Navigate to `http://localhost:4200/`. 
+The app will automatically reload if you change any of the source files.
 
 ### Access localhost from the web
 
@@ -10,6 +13,8 @@ You need a seperate server for making Angular PWAs accessible from the web.
 A recommendation is `http-server`, which is a dev-dependency and can be startet via `npx http-server -p 80 -c-1 dist/flashcards`.
 Another recommendation would be to host on an nginx docker.
 Run `npx ngrok http --host-header=rewrite --region=eu 80` for finally exposing the app to the web (requires [ngrok](https://ngrok.com)).
+
+⚠ ngrok is currently removed from dev dependencies due to error in certificate chain
 
 ## Build
 
