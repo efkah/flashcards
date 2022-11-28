@@ -1,0 +1,54 @@
+.layout {
+  display: grid;
+  grid-template-areas: "content" "toolbar";
+  grid-template-rows: 1fr min-content;
+
+  @media only screen and (min-width: 720px) {
+    grid-template-areas: "toolbar content";
+    grid-template-rows: 1fr;
+    grid-template-columns: min-content 1fr;
+  }
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .content {
+    grid-area: content;
+    overflow-y: auto;
+    @media only screen and (min-width: 720px) {
+      max-width: 1024px;
+      max-height: 100%;
+    }
+  }
+
+  .toolbar {
+    grid-area: toolbar;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media only screen and (min-width: 720px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 64px);
+      height: 100%;
+    }
+
+    button {
+      margin: auto;
+    }
+
+    .toolbar-entry {
+      margin: auto;
+      text-align: center;
+      user-select: none;
+
+      div {
+        font-size: small;
+        font-weight: 400;
+        margin-top: -12px;
+      }
+    }
+  }
+}

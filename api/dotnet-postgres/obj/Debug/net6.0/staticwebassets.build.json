@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "P6yA7jraHMOEShV+GXE2cGEVCeLN6cm7TtZFy3owdkY=",
+  "Source": "dotnet-postgres",
+  "BasePath": "_content/dotnet-postgres",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

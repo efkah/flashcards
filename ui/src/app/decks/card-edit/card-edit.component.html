@@ -1,0 +1,124 @@
+<h1>
+  <button
+    class="back"
+    routerLink="/decks/{{ deck_id }}"
+    mat-icon-button
+    attr.aria-label="{{ 'aria.cardEdit.goBack' | translate }}"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>{{ "cardEdit.header" | translate }}</span>
+</h1>
+
+<h2>{{ "cardEdit.subHeaders.editProperties" | translate }}</h2>
+
+<mat-card class="edit-card" animate="fadeIn" *ngIf="editForm">
+  <mat-card-content>
+    <form
+      id="editForm"
+      [formGroup]="editForm!"
+      (submit)="submitEditForm()"
+      (reset)="resetForm()"
+    >
+      <mat-form-field class="form-field">
+        <mat-label> {{ "cardEdit.question" | translate }} </mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="10"
+          formControlName="question"
+        ></textarea>
+        <button
+          matSuffix
+          mat-icon-button
+          color="primary"
+          [disabled]="showMarkdownForQuestion"
+          (click)="showMarkdownForQuestion = !showMarkdownForQuestion"
+        >
+          <mat-icon>preview</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="
+            (editForm?.controls)!['question'].touched &&
+            (editForm?.controls)!['question'].invalid
+          "
+        >
+          <span *ngIf="(editForm?.controls)!['question'].errors!['required']">{{
+            "error.mandatory" | translate
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <markdown *ngIf="showMarkdownForQuestion">
+        {{ editForm?.value.question }}
+      </markdown>
+      <mat-form-field class="form-field">
+        <mat-label> {{ "cardEdit.answer" | translate }} </mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="10"
+          formControlName="answer"
+        ></textarea>
+        <button
+          matSuffix
+          mat-icon-button
+          color="primary"
+          [disabled]="showMarkdownForAnswer"
+          (click)="showMarkdownForAnswer = !showMarkdownForAnswer"
+        >
+          <mat-icon>preview</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="
+            (editForm?.controls)!['answer'].touched &&
+            (editForm?.controls)!['answer'].invalid
+          "
+        >
+          <span *ngIf="(editForm?.controls)!['answer'].errors!['required']">{{
+            "error.mandatory" | translate
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <markdown *ngIf="showMarkdownForAnswer">
+        {{ editForm?.value.answer }}
+      </markdown>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" form="editForm">
+      {{ "cardEdit.actions.update" | translate }}
+    </button>
+    <button mat-button color="primary" type="reset" form="editForm" disabled>
+      <!-- TODO: Could't get reset to work, disabled it for now -->
+      {{ "cardEdit.actions.reset" | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<h2>{{ "cardEdit.subHeaders.actions" | translate }}</h2>
+
+<button
+  mat-raised-button
+  class="delete-button"
+  animate="fadeIn"
+  *ngIf="!confirmDelete"
+  color="warn"
+  (click)="deleteCard()"
+>
+  {{ "cardEdit.actions.delete" | translate }}
+</button>
+
+<button
+  mat-raised-button
+  class="delete-button"
+  animate="fadeIn"
+  *ngIf="confirmDelete"
+  color="primary"
+  (click)="confirmDeleteCard(deck_id!)"
+>
+  {{ "cardEdit.actions.confirmDelete" | translate }}
+</button>

@@ -1,0 +1,68 @@
+<h1>
+  <button
+    class="back"
+    routerLink="/decks/{{ deck_id }}"
+    mat-icon-button
+    attr.aria-label="{{ 'aria.cardView.goBack' | translate }}"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span> {{ "cardView.header" | translate }}</span>
+</h1>
+
+<div class="flash-card rotate-y" [ngClass]="{ flipped: flipped }">
+  <mat-card class="front" [ngClass]="{ 'mat-elevation-z0': flipped }">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title> {{ "cardView.question" | translate }}</mat-card-title>
+      <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <markdown *ngIf="!flipped">
+        {{ card?.question }}
+      </markdown>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="spacer-16"></div>
+      <div class="spacer-16"></div>
+      <button
+        mat-raised-button
+        class="span-2"
+        color="primary"
+        (click)="flipCard()"
+      >
+        {{ "cardView.actions.viewAnswer" | translate }}
+      </button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+  <mat-card class="back" [ngClass]="{ 'mat-elevation-z0': !flipped }">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title> {{ "cardView.answer" | translate }}</mat-card-title>
+      <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <markdown *ngIf="flipped">
+        {{ card?.answer }}
+      </markdown>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="spacer-16"></div>
+      <div class="spacer-16"></div>
+      <button
+        mat-raised-button
+        class="span-2"
+        color="accent"
+        (click)="flipCard()"
+      >
+        {{ "cardView.actions.viewQuestion" | translate }}
+      </button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+</div>

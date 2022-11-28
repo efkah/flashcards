@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  margin: 16px;
+}
+
+.mat-card.edit-card {
+  .mat-card-actions {
+    direction: rtl;
+  }
+
+  margin-bottom: 16px;
+}
+
+.delete-button {
+  width: 100%;
+}

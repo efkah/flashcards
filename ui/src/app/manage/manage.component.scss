@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  margin: 16px;
+}
+
+.signout {
+  width: 100%;
+  margin: 0 0 16px 0;
+}
+
+.google-signin {
+  width: 100%;
+  background-color: white;
+  font-weight: 400;
+  padding: 0 0 0 36px;
+  margin: 0 0 16px 0;
+
+  background-image: url("../../assets/sso/google.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 8px 8px;
+}
+
+.user {
+  display: grid;
+  grid-template-rows: repeat(3, 32px);
+  grid-template-columns: 128px 1fr;
+  margin-bottom: 16px;
+
+  img {
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+  }
+
+  h3 {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+
+  div {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  pre {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+}
+
+.mat-error {
+  margin: -16px 0 16px 0;
+}
+
+h3 .mat-icon {
+  position: relative;
+  bottom: -6px;
+}

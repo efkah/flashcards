@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import "animate.css";
+@import "very-peri-light.scss";
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  div {
+    --webkit-user-select: none;
+  }
+}
+
+.spacer-16 {
+  width: 16px;
+}
+
+.mat-snack-bar-container {
+  margin-bottom: 64px !important;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1 .back {
+  bottom: 5px;
+}
+
+html {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.mat-form-field-suffix {
+  position: absolute !important;
+  right: -4px;
+  top: 10px;
+  font-size: 21px;
+}
+
+.color-primary {
+  color: var(--primary-color);
+}
+
+.color-accent {
+  color: var(--accent-color);
+}
+
+.mat-button-wrapper {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+}

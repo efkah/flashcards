@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  margin: 16px;
+
+  // shadow host piercing
+  .mat-card-header-text {
+    margin: 0 !important;
+  }
+}
+
+.decks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.mat-card {
+  .mat-card-header {
+    display: grid;
+    grid-template-columns: 1fr 96px;
+
+    img {
+      height: 96px;
+      margin-top: -32px;
+    }
+  }
+
+  &.deck {
+    .mat-card-actions {
+      display: grid;
+      grid-template-columns: 1fr min-content 1fr 1fr;
+      gap: 8px;
+
+      .mat-raised-button {
+        margin: 0;
+      }
+    }
+  }
+
+  &.new-deck {
+    .mat-card-actions {
+      direction: rtl;
+    }
+  }
+}
+
+.new-deck-button {
+  width: 100%;
+
+  .mat-icon {
+    height: 96px;
+    width: 96px;
+    font-size: 96px;
+  }
+}

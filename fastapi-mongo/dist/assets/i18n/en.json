@@ -1,0 +1,118 @@
+{
+  "title": "Flashcards",
+  "pwa-hint": "Add this site as an App by tapping the browser menu on your Apple oder Android device and and save it to your desktop.",
+  "error": {
+    "mandatory": "This field is mandatory."
+  },
+  "toolbar": {
+    "decks": "Decks",
+    "insights": "Insights",
+    "manage": "Manage"
+  },
+  "deckList": {
+    "header": "Decks",
+    "name": "Name",
+    "description": "Description",
+    "actions": {
+      "edit": "EDIT",
+      "quiz": "QUIZ",
+      "train": "TRAIN",
+      "create": "CREATE",
+      "cancel": "CANCEL",
+      "addNewDeck": "ADD NEW DECK"
+    }
+  },
+  "deckEdit": {
+    "header": "Deck Details",
+    "subHeaders": {
+      "editProperties": "Edit Properties",
+      "viewAllCards": "View All Cards",
+      "actions": "Actions"
+    },
+    "name": "Name",
+    "description": "Description",
+    "question": "Question",
+    "answer": "Answer",
+    "actions": {
+      "edit": "EDIT",
+      "view": "VIEW",
+      "create": "CREATE",
+      "cancel": "CANCEL",
+      "update": "UPDATE",
+      "addNewCard": "ADD NEW CARD",
+      "delete": "DELETE DECK",
+      "confirmDelete": "CONFIRM DELETE DECK"
+    }
+  },
+  "cardEdit": {
+    "header": "Card Details",
+    "subHeaders": {
+      "editProperties": "Edit Properties",
+      "actions": "Actions"
+    },
+    "name": "Name",
+    "description": "Description",
+    "question": "Question",
+    "answer": "Answer",
+    "actions": {
+      "update": "UPDATE",
+      "reset": "RESET",
+      "delete": "DELETE CARD",
+      "confirmDelete": "CONFIRM DELETE CARD"
+    }
+  },
+  "cardView": {
+    "header": "Card Preview",
+    "question": "Question",
+    "answer": "Answer",
+    "actions": {
+      "viewAnswer": "VIEW ANSWER",
+      "viewQuestion": "VIEW QUESTION"
+    }
+  },
+  "insights": {
+    "header": "insights will come soon!"
+  },
+  "manage": {
+    "header": "Application Management",
+    "subHeaders": {
+      "profile": "Your profile",
+      "languages": "Language settings",
+      "sync": "Syncronization settings"
+    },
+    "credentials": "You are currently logged in as",
+    "signOut": "Sign out",
+    "signInWithGoogle": "Sign in with Google",
+    "language": "Language",
+    "languages": {
+      "de": "German",
+      "en": "English"
+    },
+    "sync": "App mode",
+    "syncStates": {
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "backendHealth": "Backend health",
+    "databaseHealth": "Database health"
+  },
+  "aria": {
+    "toolbar": {
+      "decks": "View your Decks, test yourself",
+      "insights": "View Insights and Analytics",
+      "public": "Share your decks and view shared decks"
+    },
+    "decks": {
+      "help": "Help"
+    },
+    "deckEdit": {
+      "goBack": "Go back"
+    },
+    "cardView": {
+      "goBack": "Go back"
+    },
+    "cardEdit": {
+      "goBack": "Go back"
+    }
+  }
+}

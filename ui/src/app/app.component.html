@@ -1,0 +1,53 @@
+<div class="mat-typography layout">
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <mat-toolbar class="toolbar">
+    <div class="toolbar-entry">
+      <button
+        routerLink="/decks"
+        routerLinkActive
+        #decks="routerLinkActive"
+        mat-icon-button
+        color="{{ decks.isActive ? 'primary' : 'accent' }}"
+        attr.aria-label="{{ 'aria.toolbar.decks' | translate }}"
+      >
+        <mat-icon>inventory_2</mat-icon>
+      </button>
+      <div class="{{ decks.isActive ? 'color-primary' : 'color-accent' }}">
+        {{ "toolbar.decks" | translate }}
+      </div>
+    </div>
+    <div class="toolbar-entry">
+      <button
+        routerLink="/insights"
+        routerLinkActive
+        #insights="routerLinkActive"
+        mat-icon-button
+        color="{{ insights.isActive ? 'primary' : 'accent' }}"
+        attr.aria-label="{{ 'aria.toolbar.insights' | translate }}"
+      >
+        <mat-icon>insights</mat-icon>
+      </button>
+      <div class="{{ insights.isActive ? 'color-primary' : 'color-accent' }}">
+        {{ "toolbar.insights" | translate }}
+      </div>
+    </div>
+    <div class="toolbar-entry">
+      <button
+        routerLink="/manage"
+        routerLinkActive
+        #manage="routerLinkActive"
+        mat-icon-button
+        color="{{ manage.isActive ? 'primary' : 'accent' }}"
+        attr.aria-label="{{ 'aria.toolbar.manage' | translate }}"
+      >
+        <mat-icon>manage_accounts</mat-icon>
+      </button>
+      <div class="{{ manage.isActive ? 'color-primary' : 'color-accent' }}">
+        {{ "toolbar.manage" | translate }}
+      </div>
+    </div>
+  </mat-toolbar>
+</div>

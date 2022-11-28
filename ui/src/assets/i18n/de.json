@@ -1,0 +1,101 @@
+{
+  "title": "Lernkarten",
+  "pwa-hint": "Speichere diese Seite jetzt als App, indem du sie über das Browsermenü zum Desktop deines Apple oder Android Geräts hinzufügst.",
+  "error": {
+    "mandatory": "Dies ist ein Pflichtfeld."
+  },
+  "toolbar": {
+    "decks": "Kartensätze",
+    "insights": "Diagramme",
+    "manage": "Verwaltung"
+  },
+  "deckList": {
+    "header": "Kartensätze",
+    "name": "Name",
+    "description": "Beschreibung",
+    "actions": {
+      "edit": "BEARBEITEN",
+      "quiz": "QUIZ",
+      "train": "TRAINING",
+      "create": "ERSTELLEN",
+      "cancel": "ABBRECHEN",
+      "addNewDeck": "KARTENSATZ HINZUFÜGEN"
+    }
+  },
+  "deckEdit": {
+    "header": "Details des Kartensatzes",
+    "subHeaders": {
+      "editProperties": "Eigenschaften bearbeiten",
+      "viewAllCards": "Alle Karten ansehen",
+      "actions": "Aktionen"
+    },
+    "name": "Name",
+    "description": "Beschreibung",
+    "question": "Frage",
+    "answer": "Antwort",
+    "actions": {
+      "edit": "BEARBEITEN",
+      "view": "ANSEHEN",
+      "create": "ERSTELLEN",
+      "cancel": "ABBRECHEN",
+      "update": "ÄNDERUNGEN SPEICHERN",
+      "addNewCard": "KARTE HINZUFÜGEN",
+      "delete": "DECK LÖSCHEN",
+      "confirmDelete": "LÖSCHEN BESTÄTIGEN"
+    }
+  },
+  "cardEdit": {
+    "header": "Details der Karte",
+    "subHeaders": {
+      "editProperties": "Eigenschaften bearbeiten",
+      "actions": "Aktionen"
+    },
+    "name": "Name",
+    "description": "Beschreibung",
+    "question": "Frage",
+    "answer": "Antwort",
+    "actions": {
+      "update": "ÄNDERUNGEN SPEICHERN",
+      "reset": "ZURÜCKSETZEN",
+      "delete": "KARTE LÖSCHEN",
+      "confirmDelete": "LÖSCHEN BESTÄTIGEN"
+    }
+  },
+  "cardView": {
+    "header": "Kartenvorschau",
+    "question": "Frage",
+    "answer": "Antwort",
+    "actions": {
+      "viewAnswer": "ANTWORT AUFDECKEN",
+      "viewQuestion": "FRAGE AUFDECKEN"
+    }
+  },
+  "insights": {
+    "header": "insights will come soon!"
+  },
+  "manage": {
+    "header": "Anwendungsverwaltung",
+    "subHeaders": {
+      "profile": "Dein Profil",
+      "languages": "Spracheinstellungen",
+      "sync": "Synchronisationseinstellungen"
+    },
+    "credentials": "Du bist momentan angemeldet als",
+    "noCredentials": "Anmeldung ermöglicht Synchronisation über mehrere Geräte.",
+    "signOut": "Abmelden",
+    "signInWithGoogle": "Über Google anmelden",
+    "offlineError": "Online Modus - Nur mit Anmeldung verfügbar.",
+    "language": "Sprache",
+    "languages": {
+      "de": "Deutsch",
+      "en": "Englisch"
+    },
+    "sync": "Anwendungsmodus",
+    "syncStates": {
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "backendHealth": "Backend Verfügbarkeit",
+    "databaseHealth": "Datenbank Verfügbarkeit"
+  }
+}
