@@ -30,5 +30,5 @@ The nginx configuration `nginx/default.conf` here is just as important as the `D
 1. Make just `flashcards-ui/dist` has files, f.e. by running `npm run build`.
 2. Change working dir to `flashcards-ui`.
 3. There is a `Dockerfile` which can be built by running `docker build -t flashcards-ui .`.
-4. Run `docker run -it --rm -p 80:8080 flashcards-ui` to take a look at the nginx output.
-5. If everything is okay, the page `http://0.0.0.0:80` should be available.
+4. Run `docker run -it --rm -p 4200:8080 flashcards-ui` to take a look at the nginx output.
+5. If everything is okay, the page `http://localhost:4200` should be available.

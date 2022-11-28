@@ -8,7 +8,7 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
 
 ### Release 1.0
 
-- [ ] 🚧 AR: Remove Backend
+- [x] 🚧 AR: Remove Backend
 - [ ] 🚧 AR: Save Data in indexedDb
 - [ ] 🚧 AR: Cleanup Knowledge Base
 - [ ] 🚧 AR: Publish in App Store
