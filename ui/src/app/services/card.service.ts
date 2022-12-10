@@ -14,7 +14,6 @@ import {
   throwError,
 } from 'rxjs';
 import { Card, CreateCard } from '../_dto/Card';
-import { v4 as uuidv4 } from 'uuid';
 import { ManageService } from './manage.service';
 import { DbService } from './db.service';
 import { liveQuery } from 'dexie';

@@ -15,7 +15,6 @@ import {
   throwError,
 } from 'rxjs';
 import { CreateDeck, Deck } from '../_dto/Deck';
-import { v4 as uuidv4 } from 'uuid';
 import { ManageService } from './manage.service';
 import { SocialAuthService } from 'angularx-social-login';
 import { DbService } from './db.service';
