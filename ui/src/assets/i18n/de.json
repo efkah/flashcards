@@ -111,7 +111,10 @@
     "backendHealth": "Backend Verfügbarkeit",
     "databaseHealth": "Datenbank Verfügbarkeit",
     "snackBar": {
-      "claimed": "Herrenlose Kartensatz in Besitz genommen."
-    }
+      "claimed": "Herrenlose Kartensatz in Besitz genommen.",
+      "resetted": "Datenbank wurde zurückgesetzt."
+    },
+    "resetDatabase": "DATENBANK ZURÜCKSETZEN",
+    "confirmResetDatabase": "ZURÜCKSETZEN BESTÄTIGEN"
   }
 }

@@ -111,8 +111,11 @@
     "backendHealth": "Backend health",
     "databaseHealth": "Database health",
     "snackBar": {
-      "claimed": "Claimed unowned decks."
-    }
+      "claimed": "Claimed unowned decks.",
+      "resetted": "Database has been resetted."
+    },
+    "resetDatabase": "RESET DATABASE",
+    "confirmResetDatabase": "CONFIRM RESET DATABASE"
   },
   "aria": {
     "toolbar": {

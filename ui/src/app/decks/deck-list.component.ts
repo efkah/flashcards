@@ -31,21 +31,21 @@ export class DeckListComponent implements OnInit {
     this.resetForm();
   }
 
-  showDeck(id: string) {
+  showDeck(id?: number) {
     this.snackBar.open(
       `showDeck ${id}`,
       this.translateService.instant('common.close')
     );
   }
 
-  testDeck(id: string) {
+  testDeck(id?: number) {
     this.snackBar.open(
       `testDeck ${id}`,
       this.translateService.instant('common.close')
     );
   }
 
-  trainDeck(id: string) {
+  trainDeck(id?: number) {
     this.snackBar.open(
       `trainDeck ${id}`,
       this.translateService.instant('common.close')

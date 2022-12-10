@@ -58,3 +58,25 @@
   <div>{{ "manage.backendHealth" | translate }}: {{ backendHealth }}</div>
   <div>{{ "manage.databaseHealth" | translate }}: {{ databaseHealth }}</div>
 </form>
+
+<div class="reset-database">
+  <button
+    mat-raised-button
+    animate="fadeIn"
+    *ngIf="!confirmReset"
+    color="warn"
+    (click)="resetDatabase()"
+  >
+    {{ "manage.resetDatabase" | translate }}
+  </button>
+
+  <button
+    mat-raised-button
+    animate="fadeIn"
+    *ngIf="confirmReset"
+    color="primary"
+    (click)="confirmResetDatabase()"
+  >
+    {{ "manage.confirmResetDatabase" | translate }}
+  </button>
+</div>

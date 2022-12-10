@@ -7,8 +7,9 @@ import {
   SocialAuthService,
   SocialUser,
 } from 'angularx-social-login';
-import { first, of } from 'rxjs';
+import { first, from, of } from 'rxjs';
 import { CardService } from '../services/card.service';
+import { DbService } from '../services/db.service';
 import { DeckService } from '../services/deck.service';
 import { ManageService } from '../services/manage.service';
 
@@ -20,6 +21,7 @@ import { ManageService } from '../services/manage.service';
 export class ManageComponent implements OnInit {
   user?: SocialUser;
   showOfflineHint = false;
+  confirmReset = false;
 
   manageForm: FormGroup = this.formBuilder.group({
     language: null,
@@ -39,7 +41,8 @@ export class ManageComponent implements OnInit {
     private readonly deckService: DeckService,
     private readonly cardService: CardService,
     private readonly socialAuthService: SocialAuthService,
-    private readonly snackBar: MatSnackBar
+    private readonly snackBar: MatSnackBar,
+    private readonly dbService: DbService
   ) {}
 
   ngOnInit(): void {
@@ -102,6 +105,8 @@ export class ManageComponent implements OnInit {
   }
 
   signOut(): void {
+    // SMELL: What does this do?
+
     // this.socialAuthService.signOut().then(() => {
     //   this.deckService.removeAll();
     //   this.cardService.removeAll();
@@ -111,6 +116,23 @@ export class ManageComponent implements OnInit {
     //   });
     // });
     console.info(this.user);
-    this.cardService.token().subscribe((t) => console.info(t));
+    this.manageService.getToken().subscribe((t) => console.info(t));
+  }
+
+  resetDatabase(): void {
+    this.confirmReset = true;
+  }
+
+  confirmResetDatabase(): void {
+    from(this.dbService.resetDatabase()).subscribe((_) => {
+      this.snackBar.open(
+        this.translateService.instant('manage.snackBar.resetted'),
+        this.translateService.instant('common.close'),
+        {
+          duration: 1800,
+        }
+      );
+      this.confirmReset = false;
+    });
   }
 }
