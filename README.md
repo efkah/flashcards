@@ -12,7 +12,7 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
 - [x] 🚧 AR: Cleanup Knowledge Base
 - [x] 🚀 Feature: Save Data in indexedDb
   - [x] 🐛 Fix: Card Preview does not work
-- [x] 🚀 Feature: Import export
+  - [x] 🚀 Feature: Import export
 - [ ] 🚀 Feature: Make Learning Algorythm (Look up how its called)
   - [ ] 🚀 Feature: Build the Hello new User Deck
   - [ ] 🚀 Feature: Add Deck pictures as blob to indexeddb (users can upload)
