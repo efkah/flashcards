@@ -91,7 +91,8 @@
     "subHeaders": {
       "profile": "Your profile",
       "languages": "Language settings",
-      "sync": "Syncronization settings"
+      "sync": "Syncronization settings",
+      "database": "Database"
     },
     "credentials": "You are currently logged in as",
     "noCredentials": "Logging in will allow you to sync your cards accross devices.",
@@ -99,6 +100,8 @@
     "signInWithGoogle": "Sign in with Google",
     "offlineError": "Online Mode is only available when logged in.",
     "language": "Language",
+    "importDatabase": "IMPORT JSON-FILE",
+    "exportDatabase": "EXPORT TO JSON",
     "languages": {
       "de": "German",
       "en": "English"

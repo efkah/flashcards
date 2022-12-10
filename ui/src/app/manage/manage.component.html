@@ -59,7 +59,31 @@
   <div>{{ "manage.databaseHealth" | translate }}: {{ databaseHealth }}</div>
 </form>
 
-<div class="reset-database">
+<div class="db-settings">
+  <h2>{{ "manage.subHeaders.database" | translate }}</h2>
+
+  <div (click)="uploadFile.click()">
+    <button mat-raised-button animate="fadeIn" color="primary">
+      {{ "manage.importDatabase" | translate }}
+    </button>
+    <input
+      #uploadFile
+      (change)="importDatabase($event)"
+      type="file"
+      style="display: none"
+      accept=".json"
+    />
+  </div>
+
+  <button
+    mat-raised-button
+    animate="fadeIn"
+    color="primary"
+    (click)="exportDatabase()"
+  >
+    {{ "manage.exportDatabase" | translate }}
+  </button>
+
   <button
     mat-raised-button
     animate="fadeIn"

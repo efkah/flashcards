@@ -91,7 +91,8 @@
     "subHeaders": {
       "profile": "Dein Profil",
       "languages": "Spracheinstellungen",
-      "sync": "Synchronisationseinstellungen"
+      "sync": "Synchronisationseinstellungen",
+      "database": "Datenbank"
     },
     "credentials": "Du bist momentan angemeldet als",
     "noCredentials": "Anmeldung ermöglicht Synchronisation über mehrere Geräte.",
@@ -99,6 +100,8 @@
     "signInWithGoogle": "Über Google anmelden",
     "offlineError": "Online Modus - Nur mit Anmeldung verfügbar.",
     "language": "Sprache",
+    "importDatabase": "VON JSON-DATEI IMPORTIEREN",
+    "exportDatabase": "ALS JSON-DATEI EXPORTIEREN",
     "languages": {
       "de": "Deutsch",
       "en": "Englisch"

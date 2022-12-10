@@ -135,4 +135,28 @@ export class ManageComponent implements OnInit {
       this.confirmReset = false;
     });
   }
+
+  importDatabase(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    var fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.info(e.target?.result);
+    };
+    fileReader.readAsText(input.files![0]);
+  }
+
+  exportDatabase() {
+    const data = { x: 42, s: 'hello, world', d: new Date() },
+      fileName = 'my-download.json',
+      a = document.createElement('a'),
+      json = JSON.stringify(data),
+      blob = new Blob([json], { type: 'octet/stream' }),
+      url = window.URL.createObjectURL(blob);
+    document.body.appendChild(a);
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    window.URL.revokeObjectURL(url);
+  }
 }
