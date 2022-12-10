@@ -11,12 +11,12 @@ import { Deck } from 'src/app/_dto/Deck';
   styleUrls: ['./card-view.component.scss'],
 })
 export class CardViewComponent implements OnInit {
-  get card_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('card_id') ?? '';
+  get card_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('card_id') ?? '');
   }
 
-  get deck_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '';
+  get deck_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '');
   }
 
   flipped = false;

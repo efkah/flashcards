@@ -13,8 +13,8 @@ import { Card } from 'src/app/_dto/Card';
   styleUrls: ['./deck-edit.component.scss'],
 })
 export class DeckEditComponent implements OnInit {
-  get deck_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '';
+  get deck_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '');
   }
 
   cards: Card[] = [];
@@ -109,7 +109,7 @@ export class DeckEditComponent implements OnInit {
     this.confirmDelete = true;
   }
 
-  confirmDeleteDeck(deck_id: string) {
+  confirmDeleteDeck(deck_id: number) {
     this.deckService.delete(deck_id!).subscribe((deck) => {
       this.snackBar.open(
         this.translateService.instant('cardEdit.snackBar.deleted', {

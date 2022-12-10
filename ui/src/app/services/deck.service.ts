@@ -25,72 +25,14 @@ import { liveQuery } from 'dexie';
   providedIn: 'root',
 })
 export class DeckService {
-  decks$ = liveQuery(() => this.dbService.decks.toArray());
+  // decks$ = from(liveQuery(() => this.dbService.decks));
   // decks: Deck[] = [];
-
   // private decks$ = new ReplaySubject<Deck[]>(1);
-  // private syncronize$ = new Subject<void>();
 
-  constructor(private readonly dbService: DbService) {
-    // of(true)
-    //   .pipe(
-    //     switchMap(() => {
-    //       if (this.manageService.sync === 'online') {
-    //         return this.httpClient.get<Deck[]>('/api/decks', {
-    //           headers: new HttpHeaders().set(
-    //             'Authorization',
-    //             this.manageService.token
-    //           ),
-    //         });
-    //       } else {
-    //         return throwError(() => new Error('Application is offline'));
-    //       }
-    //     })
-    //   )
-    //   .subscribe({
-    //     next: (decks) => {
-    //       this.decks = decks;
-    //       this.decks$.next(this.decks);
-    //     },
-    //     error: (error) => {
-    //       const dataString =
-    //         window.localStorage.getItem('Fk.DeckStore') ?? '[]';
-    //       this.decks = JSON.parse(dataString);
-    //       this.decks$.next(this.decks);
-    //     },
-    //   });
-    // this.syncronize$
-    //   .pipe(
-    //     tap(() => {
-    //       const dataString = JSON.stringify(this.decks);
-    //       window.localStorage.setItem('Fk.DeckStore', dataString);
-    //     }),
-    //     filter(() => this.manageService.sync === 'online'),
-    //     switchMap(() =>
-    //       this.httpClient.post<Deck[]>('/api/decks', this.decks, {
-    //         headers: new HttpHeaders().set(
-    //           'Authorization',
-    //           this.manageService.token
-    //         ),
-    //       })
-    //     )
-    //   )
-    //   .subscribe((decks) => {
-    //     console.info('decks remote after sync: ', decks);
-    //     this.decks = decks;
-    //     const dataString = JSON.stringify(this.decks);
-    //     window.localStorage.setItem('Fk.DeckStore', dataString);
-    //   });
-  }
+  constructor(private readonly dbService: DbService) {}
 
   getAll(): Observable<Deck[]> {
-    // return of(this.decks.filter((deck) => deck.sync !== 'Delete'));
-    // return this.decks$.pipe(
-    //   map((decks) => {
-    //     return decks.filter((deck) => deck.sync !== 'Delete');
-    //   })
-    // );
-    return from(this.decks$);
+    return from(liveQuery(() => this.dbService.decks.toArray()));
   }
 
   add(createDeck: CreateDeck): Observable<Deck> {
@@ -104,12 +46,13 @@ export class DeckService {
     return of();
   }
 
-  get(deck_id: string): Observable<Deck> {
+  get(deck_id: number): Observable<Deck> {
     // const selected = this.decks.filter((deck) => deck.id === deck_id);
     // if (selected.length !== 1) {
     //   throw throwError(() => new Error());
     // }
     // return of(selected[0]);
+    // return from(liveQuery(() => this.dbService.decks.fil.toArray()));
     return of();
   }
 
@@ -122,7 +65,7 @@ export class DeckService {
     return of();
   }
 
-  delete(deck_id: string): Observable<Deck> {
+  delete(deck_id: number): Observable<Deck> {
     // const deleting = this.decks.filter((deck) => deck.id === deck_id);
     // if (deleting.length !== 1) {
     //   throw throwError(() => new Error());

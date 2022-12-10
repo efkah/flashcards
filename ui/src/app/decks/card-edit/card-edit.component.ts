@@ -12,12 +12,12 @@ import { Card } from 'src/app/_dto/Card';
   styleUrls: ['./card-edit.component.scss'],
 })
 export class CardEditComponent implements OnInit {
-  get card_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('card_id') ?? '';
+  get card_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('card_id') ?? '');
   }
 
-  get deck_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '';
+  get deck_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '');
   }
 
   card?: Card;
@@ -69,7 +69,7 @@ export class CardEditComponent implements OnInit {
     this.confirmDelete = true;
   }
 
-  confirmDeleteCard(card_id: string) {
+  confirmDeleteCard(card_id: number) {
     this.cardService.delete(card_id!).subscribe((card) => {
       this.snackBar.open(
         this.translateService.instant('cardEdit.snackBar.deleted'),

@@ -26,6 +26,7 @@ export class DeckListComponent implements OnInit {
   ngOnInit(): void {
     this.deckService.getAll().subscribe((decks) => {
       this.decks = decks;
+      console.info(decks);
     });
 
     this.resetForm();
