@@ -78,7 +78,7 @@ export class CardEditComponent implements OnInit {
           duration: 1800,
         }
       );
-      this.router.navigate(['decks']);
+      this.router.navigate(['decks', this.deck_id]);
     });
   }
 

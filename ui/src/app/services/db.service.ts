@@ -11,8 +11,8 @@ export class DbService extends Dexie {
   cards!: Table<Card, number>;
 
   constructor() {
-    super('ngdexieliveQuery');
-    this.version(3).stores({
+    super('Fk.Flashcards');
+    this.version(1).stores({
       decks: '++id',
       cards: '++id, deck_id',
     });

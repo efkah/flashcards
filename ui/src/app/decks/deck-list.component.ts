@@ -26,7 +26,6 @@ export class DeckListComponent implements OnInit {
   ngOnInit(): void {
     this.deckService.getAll().subscribe((decks) => {
       this.decks = decks;
-      console.info(decks);
     });
 
     this.resetForm();
@@ -72,14 +71,16 @@ export class DeckListComponent implements OnInit {
     }
 
     this.deckService.add(this.createForm.value).subscribe((deck) => {
-      this.isCreateFormVisible = false;
-      this.resetForm();
-      this.decks.push(deck);
-      this.snackBar.open(
-        this.translateService.instant('deckList.snackBar.added'),
-        this.translateService.instant('common.close'),
-        { duration: 1800 }
-      );
+      if (deck) {
+        this.isCreateFormVisible = false;
+        this.resetForm();
+        this.decks.push(deck);
+        this.snackBar.open(
+          this.translateService.instant('deckList.snackBar.added'),
+          this.translateService.instant('common.close'),
+          { duration: 1800 }
+        );
+      }
     });
   }
 

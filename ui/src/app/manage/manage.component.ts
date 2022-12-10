@@ -73,8 +73,7 @@ export class ManageComponent implements OnInit {
         this.manageService.sync = controls['sync'];
       }
 
-      this.deckService.syncronize();
-      this.cardService.syncronize();
+      // This would be a good place to start a sync
     });
 
     this.manageService
@@ -88,11 +87,12 @@ export class ManageComponent implements OnInit {
 
   signInWithGoogle(): void {
     // SMELL: Is claiming necessary?
-    // SMELL: Change to from().subscribe()
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
+    from(
+      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    ).subscribe(() => {
       this.manageForm.controls['sync'].setValue('online');
-      this.deckService.claimAll();
-      this.cardService.claimAll();
+
+      // This would be a good place to start a sync
 
       this.snackBar.open(
         this.translateService.instant('manage.snackBar.claimed'),

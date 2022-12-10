@@ -50,7 +50,7 @@
     "snackBar": {
       "added": "Added new Card!",
       "updated": "Updated Properties!",
-      "deleted": "Deck {{name}} deleted."
+      "deleted": "Deck deleted."
     }
   },
   "cardEdit": {

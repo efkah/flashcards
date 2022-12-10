@@ -1,93 +1,37 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  filter,
-  first,
-  from,
-  map,
-  Observable,
-  of,
-  ReplaySubject,
-  Subject,
-  switchMap,
-  tap,
-  throwError,
-} from 'rxjs';
-import { Card, CreateCard } from '../_dto/Card';
-import { ManageService } from './manage.service';
-import { DbService } from './db.service';
 import { liveQuery } from 'dexie';
+import { from, Observable, of, switchMap } from 'rxjs';
+import { Card, CreateCard } from '../_dto/Card';
+import { DbService } from './db.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardService {
-  // cards$ = liveQuery(() => this.dbService.cards);
-  // cards: Card[] = [];
-  // private cards$ = new ReplaySubject<Card[]>(1);
-
   constructor(private readonly dbService: DbService) {}
 
   getAll(deckId: number): Observable<Card[]> {
-    console.info('getAll', deckId);
-    return from(
-      liveQuery(() => this.dbService.cards.where({ deck_id: deckId }).toArray())
+    // SMELL: use liveQuery(() => this.dbService.cards.where({ deck_id: deckId }).toArray())
+    return from(this.dbService.cards.where({ deck_id: deckId }).toArray());
+  }
+
+  add(createCard: CreateCard): Observable<Card | undefined> {
+    return from(this.dbService.cards.add(createCard)).pipe(
+      switchMap((id) => from(this.dbService.cards.get({ id: id })))
     );
   }
 
-  add(createCard: CreateCard): Observable<Card> {
-    // this.cards.push({
-    //   ...createCard,
-    //   id: uuidv4(),
-    //   sync: 'Add',
-    // });
-    // this.syncronize$?.next();
-    // return of(this.cards[this.cards.length - 1]);
-    return of();
+  get(card_id: number): Observable<Card | undefined> {
+    return from(this.dbService.cards.get({ id: card_id }));
   }
 
-  get(card_id: number): Observable<Card> {
-    // const selected = this.cards.filter((card) => card.id === card_id);
-    // if (selected.length !== 1) {
-    //   throw throwError(() => new Error());
-    // }
-    // return of(selected[0]);
-    return of();
+  update(updateCard: Card): Observable<Card | undefined> {
+    return from(this.dbService.cards.update(updateCard.id!, updateCard)).pipe(
+      switchMap((id) => from(this.dbService.cards.get({ id: id })))
+    );
   }
 
-  update(updateCard: Card): Observable<Card> {
-    // const store_id = this.cards.findIndex((card) => card.id === updateCard.id);
-    // updateCard.sync = this.cards[store_id].sync === 'Add' ? 'Add' : 'Update';
-    // this.cards[store_id] = updateCard;
-    // this.syncronize$?.next();
-    // return of(this.cards[store_id]);
-    return of();
-  }
-
-  delete(card_id: number): Observable<Card> {
-    // const deleting = this.cards.filter((card) => card.id === card_id);
-    // if (deleting.length !== 1) {
-    //   throw throwError(() => new Error());
-    // }
-    // deleting[0].sync = 'Delete';
-    // this.syncronize$?.next();
-    // return of(deleting[0]);
-    return of();
-  }
-
-  syncronize() {
-    // this.syncronize$.next();
-  }
-
-  claimAll() {
-    // this.cards.forEach((card) => {
-    //   card.sync = 'Add';
-    // });
-    // this.syncronize$.next();
-  }
-
-  removeAll() {
-    // this.cards = [];
-    // this.syncronize$.next();
+  delete(card_id: number): Observable<void> {
+    return from(this.dbService.cards.delete(card_id));
   }
 }

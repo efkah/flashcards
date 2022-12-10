@@ -44,11 +44,13 @@ export class DeckEditComponent implements OnInit {
     this.resetForm();
 
     this.deckService.get(this.deck_id).subscribe((deck) => {
-      this.editForm = this.formBuilder.group({
-        name: [deck.name, [Validators.required]],
-        description: deck.description,
-        id: deck.id,
-      });
+      if (deck) {
+        this.editForm = this.formBuilder.group({
+          name: [deck.name, [Validators.required]],
+          description: deck.description,
+          id: deck.id,
+        });
+      }
     });
 
     this.createForm?.controls['question'].valueChanges.subscribe((_) => {
@@ -78,14 +80,16 @@ export class DeckEditComponent implements OnInit {
     }
 
     this.cardService.add(this.createForm.value).subscribe((card) => {
-      this.isCreateFormVisible = false;
-      this.resetForm();
-      this.cards.push(card);
-      this.snackBar.open(
-        this.translateService.instant('cardEdit.snackBar.added'),
-        this.translateService.instant('common.close'),
-        { duration: 1800 }
-      );
+      if (card) {
+        this.isCreateFormVisible = false;
+        this.resetForm();
+        this.cards.push(card);
+        this.snackBar.open(
+          this.translateService.instant('deckEdit.snackBar.added'),
+          this.translateService.instant('common.close'),
+          { duration: 1800 }
+        );
+      }
     });
   }
 
@@ -98,7 +102,7 @@ export class DeckEditComponent implements OnInit {
     this.deckService.update(this.editForm.value).subscribe((deck) => {
       this.router.navigate(['decks']);
       this.snackBar.open(
-        this.translateService.instant('cardEdit.snackBar.updated'),
+        this.translateService.instant('deckEdit.snackBar.updated'),
         this.translateService.instant('common.close'),
         { duration: 1800 }
       );
@@ -110,11 +114,9 @@ export class DeckEditComponent implements OnInit {
   }
 
   confirmDeleteDeck(deck_id: number) {
-    this.deckService.delete(deck_id!).subscribe((deck) => {
+    this.deckService.delete(deck_id!).subscribe((_) => {
       this.snackBar.open(
-        this.translateService.instant('cardEdit.snackBar.deleted', {
-          name: deck.name,
-        }),
+        this.translateService.instant('deckEdit.snackBar.deleted'),
         this.translateService.instant('common.close'),
         {
           duration: 1800,

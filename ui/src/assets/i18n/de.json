@@ -50,7 +50,7 @@
     "snackBar": {
       "added": "Karte hinzugefügt!",
       "updated": "Eigenschaften aktualisiert!",
-      "deleted": "Kartensatz {{name}} gelöscht."
+      "deleted": "Kartensatz gelöscht."
     }
   },
   "cardEdit": {
