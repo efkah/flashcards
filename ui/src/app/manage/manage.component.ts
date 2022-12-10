@@ -141,14 +141,15 @@ export class ManageComponent implements OnInit {
 
     var fileReader = new FileReader();
     fileReader.onload = (e) => {
-      console.info(e.target?.result);
+      const result = JSON.parse(e.target?.result as string);
+      this.dbService.populateFromJSON(result);
     };
     fileReader.readAsText(input.files![0]);
   }
 
-  exportDatabase() {
-    const data = { x: 42, s: 'hello, world', d: new Date() },
-      fileName = 'my-download.json',
+  async exportDatabase() {
+    const data = await this.dbService.exportAsJSON();
+    const fileName = 'flashcards-export.json',
       a = document.createElement('a'),
       json = JSON.stringify(data),
       blob = new Blob([json], { type: 'octet/stream' }),

@@ -38,3 +38,7 @@ overview of alternatives
 https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API?retiredLocale=de#see_also
 
 decided for dexie
+
+# export db as json
+https://github.com/Polarisation/indexeddb-export-import
+

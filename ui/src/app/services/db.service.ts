@@ -50,4 +50,20 @@ export class DbService extends Dexie {
       this.populate();
     });
   }
+
+  async exportAsJSON(): Promise<string> {
+    const decks = await this.decks.toArray();
+    const cards = await this.cards.toArray();
+    return JSON.stringify({ decks, cards });
+  }
+
+  async populateFromJSON(text: string) {
+    const data = JSON.parse(text);
+    await this.transaction('rw', 'decks', 'cards', async () => {
+      this.decks.clear();
+      this.cards.clear();
+      await this.decks.bulkAdd(data.decks);
+      await this.cards.bulkAdd(data.cards);
+    });
+  }
 }
