@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -33,5 +33,11 @@ export class ManageService {
 
   getDatabaseHealth(): Observable<string> {
     return this.httpClient.get<string>('/api/databasehealth');
+  }
+
+  getToken() {
+    return this.httpClient.get('/api/token', {
+      headers: new HttpHeaders().set('Authorization', this.token),
+    });
   }
 }

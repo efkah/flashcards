@@ -1,6 +1,7 @@
 {
   "title": "Lernkarten",
   "pwa-hint": "Speichere diese Seite jetzt als App, indem du sie über das Browsermenü zum Desktop deines Apple oder Android Geräts hinzufügst.",
+  "common.close": "Schliessen",
   "error": {
     "mandatory": "Dies ist ein Pflichtfeld."
   },
@@ -20,6 +21,9 @@
       "create": "ERSTELLEN",
       "cancel": "ABBRECHEN",
       "addNewDeck": "KARTENSATZ HINZUFÜGEN"
+    },
+    "snackBar": {
+      "added": "Kartensatz hinzugefügt!"
     }
   },
   "deckEdit": {
@@ -42,6 +46,11 @@
       "addNewCard": "KARTE HINZUFÜGEN",
       "delete": "DECK LÖSCHEN",
       "confirmDelete": "LÖSCHEN BESTÄTIGEN"
+    },
+    "snackBar": {
+      "added": "Karte hinzugefügt!",
+      "updated": "Eigenschaften aktualisiert!",
+      "deleted": "Kartensatz gelöscht."
     }
   },
   "cardEdit": {
@@ -59,6 +68,10 @@
       "reset": "ZURÜCKSETZEN",
       "delete": "KARTE LÖSCHEN",
       "confirmDelete": "LÖSCHEN BESTÄTIGEN"
+    },
+    "snackBar": {
+      "updated": "Karte aktualisiert!",
+      "deleted": "Karte gelöscht."
     }
   },
   "cardView": {
@@ -78,7 +91,8 @@
     "subHeaders": {
       "profile": "Dein Profil",
       "languages": "Spracheinstellungen",
-      "sync": "Synchronisationseinstellungen"
+      "sync": "Synchronisationseinstellungen",
+      "database": "Datenbank"
     },
     "credentials": "Du bist momentan angemeldet als",
     "noCredentials": "Anmeldung ermöglicht Synchronisation über mehrere Geräte.",
@@ -86,6 +100,8 @@
     "signInWithGoogle": "Über Google anmelden",
     "offlineError": "Online Modus - Nur mit Anmeldung verfügbar.",
     "language": "Sprache",
+    "importDatabase": "VON JSON-DATEI IMPORTIEREN",
+    "exportDatabase": "ALS JSON-DATEI EXPORTIEREN",
     "languages": {
       "de": "Deutsch",
       "en": "Englisch"
@@ -96,6 +112,12 @@
       "offline": "Offline"
     },
     "backendHealth": "Backend Verfügbarkeit",
-    "databaseHealth": "Datenbank Verfügbarkeit"
+    "databaseHealth": "Datenbank Verfügbarkeit",
+    "snackBar": {
+      "claimed": "Herrenlose Kartensatz in Besitz genommen.",
+      "resetted": "Datenbank wurde zurückgesetzt."
+    },
+    "resetDatabase": "DATENBANK ZURÜCKSETZEN",
+    "confirmResetDatabase": "ZURÜCKSETZEN BESTÄTIGEN"
   }
 }

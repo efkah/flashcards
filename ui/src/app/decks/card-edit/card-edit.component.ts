@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CardService } from 'src/app/services/card.service';
 import { Card } from 'src/app/_dto/Card';
 
@@ -11,12 +12,12 @@ import { Card } from 'src/app/_dto/Card';
   styleUrls: ['./card-edit.component.scss'],
 })
 export class CardEditComponent implements OnInit {
-  get card_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('card_id') ?? '';
+  get card_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('card_id') ?? '');
   }
 
-  get deck_id(): string {
-    return this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '';
+  get deck_id(): number {
+    return parseInt(this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '');
   }
 
   card?: Card;
@@ -30,7 +31,8 @@ export class CardEditComponent implements OnInit {
     private readonly activatedRoute: ActivatedRoute,
     private readonly snackBar: MatSnackBar,
     private readonly router: Router,
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: FormBuilder,
+    private readonly translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +57,11 @@ export class CardEditComponent implements OnInit {
 
     this.cardService.update(this.editForm.value).subscribe((card) => {
       this.router.navigate([`decks/${this.deck_id}`]);
-      this.snackBar.open(`Updated Card!`, 'Close', { duration: 1800 });
+      this.snackBar.open(
+        this.translateService.instant('cardEdit.snackBar.updated'),
+        this.translateService.instant('common.close'),
+        { duration: 1800 }
+      );
     });
   }
 
@@ -63,12 +69,16 @@ export class CardEditComponent implements OnInit {
     this.confirmDelete = true;
   }
 
-  confirmDeleteCard(card_id: string) {
+  confirmDeleteCard(card_id: number) {
     this.cardService.delete(card_id!).subscribe((card) => {
-      this.snackBar.open(`Card deleted`, 'Close', {
-        duration: 1800,
-      });
-      this.router.navigate(['decks']);
+      this.snackBar.open(
+        this.translateService.instant('cardEdit.snackBar.deleted'),
+        this.translateService.instant('common.close'),
+        {
+          duration: 1800,
+        }
+      );
+      this.router.navigate(['decks', this.deck_id]);
     });
   }
 

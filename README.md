@@ -10,8 +10,10 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
 
 - [x] 🚧 AR: Remove Backend
 - [x] 🚧 AR: Cleanup Knowledge Base
+- [x] 🚀 Feature: Save Data in indexedDb
+  - [x] 🐛 Fix: Card Preview does not work
+- [x] 🚀 Feature: Import export
 - [ ] 🚀 Feature: Make Learning Algorythm (Look up how its called)
-- [ ] 🚀 Feature: Save Data in indexedDb
-- [ ] 🐛 Fix: Remove unused pages
+- [ ] 🐛 Fix: Remove unused parts (in Manage)
 - [ ] 🚧 AR: Publish in App Store
 

@@ -1,6 +1,7 @@
 {
   "title": "Flashcards",
   "pwa-hint": "Add this site as an App by tapping the browser menu on your Apple or Android device and  save it to your homescreen.",
+  "common.close": "Close",
   "error": {
     "mandatory": "This field is mandatory."
   },
@@ -20,6 +21,9 @@
       "create": "CREATE",
       "cancel": "CANCEL",
       "addNewDeck": "ADD NEW DECK"
+    },
+    "snackBar": {
+      "added": "Added new Deck!"
     }
   },
   "deckEdit": {
@@ -42,6 +46,11 @@
       "addNewCard": "ADD NEW CARD",
       "delete": "DELETE DECK",
       "confirmDelete": "CONFIRM DELETE DECK"
+    },
+    "snackBar": {
+      "added": "Added new Card!",
+      "updated": "Updated Properties!",
+      "deleted": "Deck deleted."
     }
   },
   "cardEdit": {
@@ -59,6 +68,10 @@
       "reset": "RESET",
       "delete": "DELETE CARD",
       "confirmDelete": "CONFIRM DELETE CARD"
+    },
+    "snackBar": {
+      "updated": "Updated Card!",
+      "deleted": "Card deleted."
     }
   },
   "cardView": {
@@ -78,7 +91,8 @@
     "subHeaders": {
       "profile": "Your profile",
       "languages": "Language settings",
-      "sync": "Syncronization settings"
+      "sync": "Syncronization settings",
+      "database": "Database"
     },
     "credentials": "You are currently logged in as",
     "noCredentials": "Logging in will allow you to sync your cards accross devices.",
@@ -86,6 +100,8 @@
     "signInWithGoogle": "Sign in with Google",
     "offlineError": "Online Mode is only available when logged in.",
     "language": "Language",
+    "importDatabase": "IMPORT JSON-FILE",
+    "exportDatabase": "EXPORT TO JSON",
     "languages": {
       "de": "German",
       "en": "English"
@@ -96,7 +112,13 @@
       "offline": "Offline"
     },
     "backendHealth": "Backend health",
-    "databaseHealth": "Database health"
+    "databaseHealth": "Database health",
+    "snackBar": {
+      "claimed": "Claimed unowned decks.",
+      "resetted": "Database has been resetted."
+    },
+    "resetDatabase": "RESET DATABASE",
+    "confirmResetDatabase": "CONFIRM RESET DATABASE"
   },
   "aria": {
     "toolbar": {
