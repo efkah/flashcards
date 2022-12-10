@@ -1,4 +1,4 @@
-# flashcards
+# Fk.Flashcards
 A simple flashcard app.
 
 ## Development
