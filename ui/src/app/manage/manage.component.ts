@@ -84,14 +84,20 @@ export class ManageComponent implements OnInit {
   }
 
   signInWithGoogle(): void {
+    // SMELL: Is claiming necessary?
+    // SMELL: Change to from().subscribe()
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
       this.manageForm.controls['sync'].setValue('online');
       this.deckService.claimAll();
       this.cardService.claimAll();
 
-      this.snackBar.open(`Claimed unowned decks.`, 'Close', {
-        duration: 1800,
-      });
+      this.snackBar.open(
+        this.translateService.instant('manage.snackBar.claimed'),
+        this.translateService.instant('common.close'),
+        {
+          duration: 1800,
+        }
+      );
     });
   }
 

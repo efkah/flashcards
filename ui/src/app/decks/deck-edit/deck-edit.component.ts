@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { CardService } from 'src/app/services/card.service';
 import { DeckService } from 'src/app/services/deck.service';
 import { Card } from 'src/app/_dto/Card';
@@ -31,7 +32,8 @@ export class DeckEditComponent implements OnInit {
     private readonly activatedRoute: ActivatedRoute,
     private readonly snackBar: MatSnackBar,
     private readonly formBuilder: FormBuilder,
-    private readonly elementRef: ElementRef
+    private readonly elementRef: ElementRef,
+    private readonly translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -79,7 +81,11 @@ export class DeckEditComponent implements OnInit {
       this.isCreateFormVisible = false;
       this.resetForm();
       this.cards.push(card);
-      this.snackBar.open(`Added new Card!`, 'Close', { duration: 1800 });
+      this.snackBar.open(
+        this.translateService.instant('cardEdit.snackBar.added'),
+        this.translateService.instant('common.close'),
+        { duration: 1800 }
+      );
     });
   }
 
@@ -91,7 +97,11 @@ export class DeckEditComponent implements OnInit {
 
     this.deckService.update(this.editForm.value).subscribe((deck) => {
       this.router.navigate(['decks']);
-      this.snackBar.open(`Updated Properties`, 'Close', { duration: 1800 });
+      this.snackBar.open(
+        this.translateService.instant('cardEdit.snackBar.updated'),
+        this.translateService.instant('common.close'),
+        { duration: 1800 }
+      );
     });
   }
 
@@ -101,9 +111,15 @@ export class DeckEditComponent implements OnInit {
 
   confirmDeleteDeck(deck_id: string) {
     this.deckService.delete(deck_id!).subscribe((deck) => {
-      this.snackBar.open(`Deck ${deck.name} deleted`, 'Close', {
-        duration: 1800,
-      });
+      this.snackBar.open(
+        this.translateService.instant('cardEdit.snackBar.deleted', {
+          name: deck.name,
+        }),
+        this.translateService.instant('common.close'),
+        {
+          duration: 1800,
+        }
+      );
       this.router.navigate(['decks']);
     });
   }

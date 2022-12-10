@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 import { DeckService } from '../services/deck.service';
 import { Deck } from '../_dto/Deck';
 
@@ -18,7 +19,8 @@ export class DeckListComponent implements OnInit {
     private readonly deckService: DeckService,
     private readonly snackBar: MatSnackBar,
     private readonly formBuilder: FormBuilder,
-    private readonly elementRef: ElementRef
+    private readonly elementRef: ElementRef,
+    private readonly translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -30,15 +32,24 @@ export class DeckListComponent implements OnInit {
   }
 
   showDeck(id: string) {
-    this.snackBar.open(`showDeck ${id}`, 'Close');
+    this.snackBar.open(
+      `showDeck ${id}`,
+      this.translateService.instant('common.close')
+    );
   }
 
   testDeck(id: string) {
-    this.snackBar.open(`testDeck ${id}`, 'Close');
+    this.snackBar.open(
+      `testDeck ${id}`,
+      this.translateService.instant('common.close')
+    );
   }
 
   trainDeck(id: string) {
-    this.snackBar.open(`trainDeck ${id}`, 'Close');
+    this.snackBar.open(
+      `trainDeck ${id}`,
+      this.translateService.instant('common.close')
+    );
   }
 
   showCreateForm() {
@@ -63,7 +74,11 @@ export class DeckListComponent implements OnInit {
       this.isCreateFormVisible = false;
       this.resetForm();
       this.decks.push(deck);
-      this.snackBar.open(`Added new Deck!`, 'Close', { duration: 1800 });
+      this.snackBar.open(
+        this.translateService.instant('deckList.snackBar.added'),
+        this.translateService.instant('common.close'),
+        { duration: 1800 }
+      );
     });
   }
 
