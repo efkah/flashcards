@@ -14,6 +14,8 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
   - [x] 🐛 Fix: Card Preview does not work
 - [x] 🚀 Feature: Import export
 - [ ] 🚀 Feature: Make Learning Algorythm (Look up how its called)
+  - [x] 🐛 Fix: Build the Hello new User Deck
+  - [x] 🐛 Fix: Add Deck pictures as blob to indexeddb (users can upload)
 - [ ] 🐛 Fix: Remove unused parts (in Manage)
 - [ ] 🚧 AR: Publish in App Store
 
