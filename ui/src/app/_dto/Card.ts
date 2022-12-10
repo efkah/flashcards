@@ -3,7 +3,6 @@ export interface CreateCard {
   answer: string;
   deck_id: string;
   owner: string;
-  sync: 'None' | 'Add' | 'Update' | 'Delete';
   assessment?: 'None' | 'Bad' | 'Good' | 'Perfect';
   time_answered?: Date;
 }
