@@ -33,12 +33,22 @@ The nginx configuration `nginx/default.conf` here is just as important as the `D
 4. Run `docker run -it --rm -p 4200:8080 flashcards-ui` to take a look at the nginx output.
 5. If everything is okay, the page `http://localhost:4200` should be available.
 
-# indexed db usage
-overview of alternatives
-https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API?retiredLocale=de#see_also
+## Analysis and design choices
+### indexed db usage
+An overview of alternatives can be found here:
+- https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API?retiredLocale=de#see_also
 
-decided for dexie
+Half of the alternatives were minimalistic wrappers, the other fully integrated with a db provider.
+I was looking for the later one, so pouchDB, mini-mongo and dexie. 
+Though RxDB, a library which seems to target all backends and unify wrapper libraries seems like a good option, i decided for a native solution.
+RxDB added too much set up to a simple task like add a database, though it might be a good option to **switch to at a certain point**, without changing the database.
+Though pouchDB seems cool and open source i decided against Apache Stacks.
+As mini-mongo would use the already known atlas/mongo synthax, i decided for something new.
+Dexie was the best choice for learning something new which is well documented.
 
-# export db as json
-https://github.com/Polarisation/indexeddb-export-import
+### export db as json
+Here is a library for exporting a database:
+- https://github.com/Polarisation/indexeddb-export-import
 
+Exporting a databse without meta-information (only tables) is way easier and does the trick here.
+So i decided for manual import/export.

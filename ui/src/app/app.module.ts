@@ -40,6 +40,7 @@ import {
   SocialAuthServiceConfig,
   SocialLoginModule,
 } from 'angularx-social-login';
+import { QuizComponent } from './quiz/quiz.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,6 +59,7 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     CardEditComponent,
     DeckHelpComponent,
     HomeComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,

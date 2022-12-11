@@ -1,0 +1,30 @@
+<h1>
+  <button class="back" routerLink="/decks" mat-icon-button aria-label="Go back">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>{{ "quiz.header" | translate }}</span>
+</h1>
+
+<div *ngIf="state === 'start'" animate="fadeIn" class="container">
+  <p>🧐</p>
+
+  <button mat-raised-button color="primary" (click)="start()" class="full-size">
+    {{ "quiz.start" | translate }}
+  </button>
+</div>
+
+<div *ngIf="state === 'quiz'" animate="fadeIn" class="container">
+  <p>❓</p>
+
+  <button mat-raised-button color="primary" (click)="quiz()" class="full-size">
+    {{ "quiz.quiz" | translate }}
+  </button>
+</div>
+
+<div *ngIf="state === 'end'" animate="fadeIn" class="container">
+  <p>🥳</p>
+
+  <button mat-raised-button color="primary" (click)="end()" class="full-size">
+    {{ "quiz.end" | translate }}
+  </button>
+</div>
