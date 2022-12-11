@@ -119,5 +119,14 @@
     },
     "resetDatabase": "DATENBANK ZURÜCKSETZEN",
     "confirmResetDatabase": "ZURÜCKSETZEN BESTÄTIGEN"
+  },
+  "quiz": {
+    "header": "Quiz",
+    "start": {
+      "button": "QUIZ STARTEN",
+      "hint1": "Um das Quiz zu starten, drücke den Knopf unten.",
+      "hint2": "Im Quiz, drücke 'AUFLÖSEN' um das Ergebnis anzuzeigen, dann 'JA' oder 'NEIN' um fortzufahren.",
+      "hint3": "Deine Zeit wird gestoppt, als bleib konzentriert!"
+    }
   }
 }

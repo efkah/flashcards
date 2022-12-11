@@ -138,5 +138,14 @@
     "cardEdit": {
       "goBack": "Go back"
     }
+  },
+  "quiz": {
+    "header": "Quiz",
+    "start": {
+      "button": "START QUIZ",
+      "hint1": "To start the quiz, press the button below.",
+      "hint2": "In the quiz, press 'RESOLVE' to show the result, then press 'YES' or 'NO' to continue.",
+      "hint3": "Your time will be taken, so stay concentrated!"
+    }
   }
 }

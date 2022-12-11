@@ -5,26 +5,93 @@
   <span>{{ "quiz.header" | translate }}</span>
 </h1>
 
-<div *ngIf="state === 'start'" animate="fadeIn" class="container">
-  <p>🧐</p>
-
+<div *ngIf="state === 'start'" animate="fadeIn" class="container start">
+  <div class="info">
+    <div class="smiley">🧐</div>
+    <p>{{ "quiz.start.hint1" | translate }}</p>
+    <p>{{ "quiz.start.hint2" | translate }}</p>
+    <p>{{ "quiz.start.hint3" | translate }}</p>
+  </div>
   <button mat-raised-button color="primary" (click)="start()" class="full-size">
-    {{ "quiz.start" | translate }}
+    {{ "quiz.start.button" | translate }}
   </button>
 </div>
 
 <div *ngIf="state === 'quiz'" animate="fadeIn" class="container">
-  <p>❓</p>
-
-  <button mat-raised-button color="primary" (click)="quiz()" class="full-size">
-    {{ "quiz.quiz" | translate }}
-  </button>
+  <div class="flashcard rotate-y" [ngClass]="{ flipped: flipped }">
+    <mat-card class="front" [ngClass]="{ 'mat-elevation-z0': flipped }">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title> {{ "cardView.question" | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <markdown *ngIf="!flipped">
+          {{ currentCard?.question }}
+        </markdown>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          class="full-size"
+          color="primary"
+          (click)="flipCard()"
+        >
+          {{ "quiz.quiz.resolve" | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" value="100"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card class="back" [ngClass]="{ 'mat-elevation-z0': !flipped }">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title> {{ "cardView.answer" | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <markdown *ngIf="flipped">
+          {{ currentCard?.answer }}
+        </markdown>
+      </mat-card-content>
+      <mat-card-actions class="hint">
+        <div>{{ "quiz.quiz.hint" | translate }}</div>
+        <button
+          mat-raised-button
+          class="span-2"
+          color="warn"
+          (click)="nextCard(false)"
+        >
+          {{ "quiz.quiz.false" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          class="span-2"
+          color="accent"
+          (click)="nextCard(true)"
+        >
+          {{ "quiz.quiz.true" | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 </div>
 
-<div *ngIf="state === 'end'" animate="fadeIn" class="container">
-  <p>🥳</p>
-
-  <button mat-raised-button color="primary" (click)="end()" class="full-size">
+<div *ngIf="state === 'end'" animate="fadeIn" class="container end">
+  <div class="info">
+    <div class="smiley">🥳</div>
+    <p>{{ quizData | json }}</p>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/decks"
+    class="full-size"
+  >
     {{ "quiz.end" | translate }}
   </button>
 </div>
