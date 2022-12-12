@@ -35,11 +35,11 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSelectModule } from '@angular/material/select';
 import { HomeComponent } from './home/home.component';
-import {
-  GoogleLoginProvider,
-  SocialAuthServiceConfig,
-  SocialLoginModule,
-} from 'angularx-social-login';
+// import {
+//   GoogleLoginProvider,
+//   SocialAuthServiceConfig,
+//   SocialLoginModule,
+// } from 'angularx-social-login';
 import { QuizComponent } from './quiz/quiz.component';
 
 // AoT requires an exported function for factories
@@ -77,7 +77,7 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     HttpClientModule,
     MatSelectModule,
     MatProgressBarModule,
-    SocialLoginModule,
+    // SocialLoginModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
     TranslateModule.forRoot({
       loader: {
@@ -95,18 +95,18 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
   ],
   providers: [
     MatIconRegistry,
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: true,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(CLIENT_ID),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: true,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(CLIENT_ID),
+    //       },
+    //     ],
+    //   } as SocialAuthServiceConfig,
+    // },
   ],
   bootstrap: [AppComponent],
 })
