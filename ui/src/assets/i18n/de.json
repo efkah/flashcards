@@ -127,6 +127,19 @@
       "hint1": "Um das Quiz zu starten, drücke den Knopf unten.",
       "hint2": "Im Quiz, drücke 'AUFLÖSEN' um das Ergebnis anzuzeigen, dann 'JA' oder 'NEIN' um fortzufahren.",
       "hint3": "Deine Zeit wird gestoppt, als bleib konzentriert!"
+    },
+    "quiz": {
+      "resolve": "AUFLÖSEN",
+      "selfAssessment": {
+        "hint": "Wie warst du?",
+        "good": "GUT",
+        "bad": "SCHLECHT"
+      }
+    },
+    "end": {
+      "button": "ZURÜCK ZUM KARTENSATZ",
+      "hint1": "🎉🎈🥳 GESCHAFFT! 🥳🎈🎉",
+      "hint2": "Du hast die Fragen in {{time}} Sekunden beantwortet. Mehr Details gibt bei den Diagrammen."
     }
   }
 }

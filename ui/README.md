@@ -52,3 +52,9 @@ Here is a library for exporting a database:
 
 Exporting a databse without meta-information (only tables) is way easier and does the trick here.
 So i decided for manual import/export.
+
+### Charting
+I used Highcharts to learn it for my current work projects.
+might switch to
+https://developers.google.com/chart/interactive/docs/gallery/barchart?hl=de
+https://www.npmjs.com/package/angular-google-charts

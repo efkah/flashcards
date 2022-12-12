@@ -27,18 +27,31 @@ export class DbService extends Dexie {
     await this.cards.bulkAdd([
       {
         deck_id,
-        question: 'Feed the birds',
-        answer: 'Feed the birds',
+        question: 'How do you **advance** to **next card**?',
+        answer: 'Just assess your performance below.',
       },
       {
         deck_id,
-        question: 'Watch a movie',
-        answer: 'Watch a movie',
+        question: 'Whats happening when **all cards are shown** in a **quiz**?',
+        answer: 'The quiz will stop and show me how i done.',
       },
       {
         deck_id,
-        question: 'Have some sleep',
-        answer: 'Have some sleep',
+        question:
+          'Whats happening when **all cards are shown** in a **training session**?',
+        answer:
+          'It will show me cards i have done **good** with **less** and cards i have **problems** with **more often**.',
+      },
+      {
+        deck_id,
+        question: 'What is the *most important thing about learning*?',
+        answer: '*Have enough sleep*',
+      },
+      {
+        deck_id,
+        question: 'How can i `add cards` to a deck?',
+        answer:
+          'Just click `"EDIT"`, <br/> then scroll to bottom <br/> and click `"+ ADD NEW CARD"`',
       },
     ]);
   }

@@ -146,6 +146,19 @@
       "hint1": "To start the quiz, press the button below.",
       "hint2": "In the quiz, press 'RESOLVE' to show the result, then press 'YES' or 'NO' to continue.",
       "hint3": "Your time will be taken, so stay concentrated!"
+    },
+    "quiz": {
+      "resolve": "RESOLVE",
+      "selfAssessment": {
+        "hint": "How did you do?",
+        "good": "GOOD",
+        "bad": "BAD"
+      }
+    },
+    "end": {
+      "button": "BACK TO DECK",
+      "hint1": "🎉🎈🥳 FINISHED! 🥳🎈🎉",
+      "hint2": "You solved all questions in {{time}} seconds. View more details in insights."
     }
   }
 }

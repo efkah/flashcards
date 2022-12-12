@@ -4,6 +4,9 @@ import { CardService } from '../services/card.service';
 import { DeckService } from '../services/deck.service';
 import { Card } from '../_dto/Card';
 import { Deck } from '../_dto/Deck';
+import * as Highcharts from 'highcharts';
+import { TranslateService } from '@ngx-translate/core';
+import { StopwatchService } from '../services/stopwatch.service';
 
 @Component({
   selector: 'app-quiz',
@@ -19,13 +22,15 @@ export class QuizComponent implements OnInit {
   deck?: Deck;
   cards?: Card[];
   currentCard?: Card;
-
+  time: number = 0;
   quizData: any[] = [];
 
   constructor(
     private readonly cardService: CardService,
     private readonly deckService: DeckService,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly translateService: TranslateService,
+    private readonly stopwatchService: StopwatchService
   ) {}
 
   ngOnInit(): void {
@@ -41,21 +46,17 @@ export class QuizComponent implements OnInit {
   start() {
     this.state = 'quiz';
     this.nextCard(false);
-    // TODO: start timer
   }
-  stop() {
-    // TODO: Stop the timer
-    this.state = 'end';
-  }
+
   flipCard() {
     this.flipped = true;
-    // TODO: pause timer
+    this.stopwatchService.pause();
   }
   nextCard(answer: boolean) {
     if (this.currentCard) {
       this.quizData.push({
         cardId: this.currentCard.id,
-        time: 0,
+        time: this.stopwatchService.getLastTime(),
         answer,
       });
     }
@@ -65,9 +66,62 @@ export class QuizComponent implements OnInit {
 
       this.currentCard = this.cards.splice(id, 1)[0];
       this.flipped = false;
-      // TODO: restart time
+      this.stopwatchService.start();
     } else {
       this.stop();
     }
+  }
+
+  stop() {
+    this.time = Math.ceil(this.stopwatchService.getAllTime() / 100) / 10;
+    this.state = 'end';
+    this.stopwatchService.clear();
+    console.info(this.quizData);
+    const chartOptions: Highcharts.Options = {
+      chart: {
+        plotBackgroundColor: undefined,
+        plotBorderWidth: undefined,
+        plotShadow: false,
+        type: 'pie',
+        backgroundColor: 'rgba(0,0,0,0)',
+      },
+      title: {
+        text: '',
+        align: 'left',
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            distance: -34,
+          },
+        },
+      },
+      series: [
+        {
+          colorByPoint: true,
+          data: [
+            {
+              name: this.quizData.some((x) => x.answer === false)
+                ? this.translateService.instant('quiz.quiz.selfAssessment.bad')
+                : '',
+              y: this.quizData.filter((x) => x.answer === false).length,
+              sliced: true,
+              color: '#E94354',
+            },
+            {
+              name: this.quizData.some((x) => x.answer === true)
+                ? this.translateService.instant('quiz.quiz.selfAssessment.good')
+                : '',
+              y: this.quizData.filter((x) => x.answer === true).length,
+              color: '#6D8C00',
+            },
+          ],
+        },
+      ] as any,
+    };
+    Highcharts.chart('container', chartOptions);
   }
 }

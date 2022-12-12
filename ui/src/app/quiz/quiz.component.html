@@ -56,22 +56,22 @@
         </markdown>
       </mat-card-content>
       <mat-card-actions class="hint">
-        <div>{{ "quiz.quiz.hint" | translate }}</div>
+        <div>{{ "quiz.quiz.selfAssessment.hint" | translate }}</div>
         <button
           mat-raised-button
           class="span-2"
-          color="warn"
+          class="bad"
           (click)="nextCard(false)"
         >
-          {{ "quiz.quiz.false" | translate }}
+          {{ "quiz.quiz.selfAssessment.bad" | translate }}
         </button>
         <button
           mat-raised-button
           class="span-2"
-          color="accent"
+          class="good"
           (click)="nextCard(true)"
         >
-          {{ "quiz.quiz.true" | translate }}
+          {{ "quiz.quiz.selfAssessment.good" | translate }}
         </button>
       </mat-card-actions>
       <mat-card-footer>
@@ -81,10 +81,17 @@
   </div>
 </div>
 
-<div *ngIf="state === 'end'" animate="fadeIn" class="container end">
+<div
+  [ngClass]="{ hidden: state !== 'end' }"
+  animate="fadeIn"
+  class="container end"
+>
   <div class="info">
-    <div class="smiley">🥳</div>
-    <p>{{ quizData | json }}</p>
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+    </figure>
+    <p>{{ "quiz.end.hint1" | translate }}</p>
+    <p>{{ "quiz.end.hint2" | translate : { time } }}</p>
   </div>
   <button
     mat-raised-button
@@ -92,6 +99,6 @@
     routerLink="/decks"
     class="full-size"
   >
-    {{ "quiz.end" | translate }}
+    {{ "quiz.end.button" | translate }}
   </button>
 </div>
