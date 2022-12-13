@@ -16,7 +16,6 @@ export class StopwatchService {
   pause() {
     const diff = this.diffs[this.diffs.length - 1];
     diff.stop = performance.now();
-    console.info(this.diffs);
   }
   pauseAndRestart() {
     const diff = this.diffs[this.diffs.length - 1];
