@@ -42,6 +42,7 @@ import { HomeComponent } from './home/home.component';
 // } from 'angularx-social-login';
 import { QuizComponent } from './quiz/quiz.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { TrainComponent } from './train/train.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -61,6 +62,7 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     DeckHelpComponent,
     HomeComponent,
     QuizComponent,
+    TrainComponent,
   ],
   imports: [
     BrowserModule,

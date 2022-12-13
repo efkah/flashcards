@@ -9,21 +9,21 @@ import { TranslateService } from '@ngx-translate/core';
 import { StopwatchService } from '../services/stopwatch.service';
 
 @Component({
-  selector: 'app-quiz',
-  templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss'],
+  selector: 'app-train',
+  templateUrl: './train.component.html',
+  styleUrls: ['./train.component.scss'],
 })
-export class QuizComponent implements OnInit {
+export class TrainComponent implements OnInit {
   get deck_id(): number {
     return parseInt(this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '');
   }
-  state: 'start' | 'quiz' | 'end' = 'start';
+  state: 'start' | 'train' | 'end' = 'start';
   flipped = true;
   deck?: Deck;
   cards?: Card[];
   currentCard?: Card;
   time: number = 0;
-  quizData: any[] = [];
+  trainData: any[] = [];
 
   constructor(
     private readonly cardService: CardService,
@@ -44,7 +44,7 @@ export class QuizComponent implements OnInit {
   }
 
   start() {
-    this.state = 'quiz';
+    this.state = 'train';
     this.nextCard(false);
   }
 
@@ -54,7 +54,7 @@ export class QuizComponent implements OnInit {
   }
   nextCard(answer: boolean) {
     if (this.currentCard) {
-      this.quizData.push({
+      this.trainData.push({
         cardId: this.currentCard.id,
         time: this.stopwatchService.getLastTime(),
         answer,
@@ -103,19 +103,23 @@ export class QuizComponent implements OnInit {
           colorByPoint: true,
           data: [
             {
-              name: this.quizData.some((x) => x.answer === false)
-                ? this.translateService.instant('quiz.quiz.selfAssessment.bad')
+              name: this.trainData.some((x) => x.answer === false)
+                ? this.translateService.instant(
+                    'train.train.selfAssessment.bad'
+                  )
                 : '',
-              y: this.quizData.filter((x) => x.answer === false).length,
+              y: this.trainData.filter((x) => x.answer === false).length,
               // @ts-ignore
               sliced: true,
               color: '#E94354',
             },
             {
-              name: this.quizData.some((x) => x.answer === true)
-                ? this.translateService.instant('quiz.quiz.selfAssessment.good')
+              name: this.trainData.some((x) => x.answer === true)
+                ? this.translateService.instant(
+                    'train.train.selfAssessment.good'
+                  )
                 : '',
-              y: this.quizData.filter((x) => x.answer === true).length,
+              y: this.trainData.filter((x) => x.answer === true).length,
               color: '#6D8C00',
             },
           ],

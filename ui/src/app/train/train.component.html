@@ -1,0 +1,104 @@
+<h1>
+  <button class="back" routerLink="/decks" mat-icon-button aria-label="Go back">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>{{ "train.header" | translate }}</span>
+</h1>
+
+<div *ngIf="state === 'start'" animate="fadeIn" class="container start">
+  <div class="info">
+    <div class="smiley">💪</div>
+    <p>{{ "train.start.hint1" | translate }}</p>
+    <p>{{ "train.start.hint2" | translate }}</p>
+    <p>{{ "train.start.hint3" | translate }}</p>
+  </div>
+  <button mat-raised-button color="primary" (click)="start()" class="full-size">
+    {{ "train.start.button" | translate }}
+  </button>
+</div>
+
+<div *ngIf="state === 'train'" animate="fadeIn" class="container">
+  <div class="flashcard rotate-y" [ngClass]="{ flipped: flipped }">
+    <mat-card class="front" [ngClass]="{ 'mat-elevation-z0': flipped }">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title> {{ "cardView.question" | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <markdown *ngIf="!flipped">
+          {{ currentCard?.question }}
+        </markdown>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          class="full-size"
+          color="primary"
+          (click)="flipCard()"
+        >
+          {{ "train.train.resolve" | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" value="100"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card class="back" [ngClass]="{ 'mat-elevation-z0': !flipped }">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title> {{ "cardView.answer" | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <markdown *ngIf="flipped">
+          {{ currentCard?.answer }}
+        </markdown>
+      </mat-card-content>
+      <mat-card-actions class="hint">
+        <div>{{ "train.train.selfAssessment.hint" | translate }}</div>
+        <button
+          mat-raised-button
+          class="span-2"
+          class="bad"
+          (click)="nextCard(false)"
+        >
+          {{ "train.train.selfAssessment.bad" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          class="span-2"
+          class="good"
+          (click)="nextCard(true)"
+        >
+          {{ "train.train.selfAssessment.good" | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+<div
+  [ngClass]="{ hidden: state !== 'end' }"
+  animate="fadeIn"
+  class="container end"
+>
+  <div class="info">
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+    </figure>
+    <p>{{ "train.end.hint1" | translate }}</p>
+    <p>{{ "train.end.hint2" | translate : { time } }}</p>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/decks"
+    class="full-size"
+  >
+    {{ "train.end.button" | translate }}
+  </button>
+</div>
