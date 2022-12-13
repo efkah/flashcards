@@ -7,8 +7,29 @@
 
 <div *ngIf="state === 'start'" animate="fadeIn" class="container start">
   <div class="info">
-    <div class="smiley">💪</div>
     <p>{{ "train.start.hint1" | translate }}</p>
+    <form>
+      <div class="button-dummy good">😁</div>
+      <mat-slider min="1" max="100" step="1" value="8">
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy rather-good">😊</div>
+      <mat-slider min="1" max="100" step="1" value="14">
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy neutral">🙂</div>
+      <mat-slider min="1" max="100" step="1" value="26">
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy rather-bad">😑</div>
+      <mat-slider min="1" max="100" step="1" value="51">
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy bad">😞</div>
+      <mat-slider min="1" max="100" step="1" value="100">
+        <input matSliderThumb />
+      </mat-slider>
+    </form>
     <p>{{ "train.start.hint2" | translate }}</p>
     <p>{{ "train.start.hint3" | translate }}</p>
   </div>

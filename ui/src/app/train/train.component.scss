@@ -15,6 +15,29 @@
   left: 0;
   right: 0;
 
+  &.start {
+    .mat-slider-horizontal {
+      min-width: 100%;
+      margin-bottom: 8px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 20% 80%;
+
+      .button-dummy {
+        margin: 8px 0;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 4px;
+        box-shadow: 0 0 1px black;
+      }
+    }
+    p {
+      padding-top: 16px;
+    }
+  }
+
   &.start,
   &.end {
     display: grid;
@@ -93,9 +116,21 @@
 }
 
 .good {
-  background-color: #6d8c00;
+  background-color: #2aa954;
 }
 
 .bad {
   background-color: #e94354;
+}
+
+.rather-good {
+  background-color: #00b096;
+}
+
+.rather-bad {
+  background-color: #ec6e45;
+}
+
+.neutral {
+  background-color: #009af0;
 }
