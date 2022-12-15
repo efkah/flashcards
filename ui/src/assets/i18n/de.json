@@ -141,5 +141,25 @@
       "hint1": "🎉🎈🥳 GESCHAFFT! 🥳🎈🎉",
       "hint2": "Du hast die Fragen in {{time}} Sekunden beantwortet. Mehr Details gibt bei den Diagrammen."
     }
+  },
+  "train": {
+    "header": "Training",
+    "start": {
+      "button": "TRAINING STARTEN",
+      "hint1": "Stellen sie hier die Gewichtung der Antworten ein.",
+      "hint2": "Eine höhere Gewichtung bedeutet, dass die Karten öfter angezeigt werden.",
+      "hint3": "Viel Spass beim Training!"
+    },
+    "train": {
+      "resolve": "AUFLÖSEN",
+      "selfAssessment": {
+        "hint": "Wie gut warst du?",
+        "good": "😁",
+        "ratherGood": "😊",
+        "neutral": "🙂",
+        "ratherBad": "😑",
+        "bad": "😞"
+      }
+    }
   }
 }

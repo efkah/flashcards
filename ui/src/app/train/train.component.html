@@ -9,24 +9,34 @@
   <div class="info">
     <p>{{ "train.start.hint1" | translate }}</p>
     <form>
-      <div class="button-dummy good">😁</div>
-      <mat-slider min="1" max="100" step="1" value="8">
+      <div class="button-dummy good">
+        {{ "train.train.selfAssessment.good" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="8" disabled>
         <input matSliderThumb />
       </mat-slider>
-      <div class="button-dummy rather-good">😊</div>
-      <mat-slider min="1" max="100" step="1" value="14">
+      <div class="button-dummy rather-good">
+        {{ "train.train.selfAssessment.ratherGood" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="14" disabled>
         <input matSliderThumb />
       </mat-slider>
-      <div class="button-dummy neutral">🙂</div>
-      <mat-slider min="1" max="100" step="1" value="26">
+      <div class="button-dummy neutral">
+        {{ "train.train.selfAssessment.neutral" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="26" disabled>
         <input matSliderThumb />
       </mat-slider>
-      <div class="button-dummy rather-bad">😑</div>
-      <mat-slider min="1" max="100" step="1" value="51">
+      <div class="button-dummy rather-bad">
+        {{ "train.train.selfAssessment.ratherBad" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="51" disabled>
         <input matSliderThumb />
       </mat-slider>
-      <div class="button-dummy bad">😞</div>
-      <mat-slider min="1" max="100" step="1" value="100">
+      <div class="button-dummy bad">
+        {{ "train.train.selfAssessment.bad" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="100" disabled>
         <input matSliderThumb />
       </mat-slider>
     </form>
@@ -82,7 +92,7 @@
           {{ "train.train.selfAssessment.bad" | translate }}
         </button>
         <button mat-raised-button class="rather-bad" (click)="nextCard(3)">
-          {{ "train.train.selfAssessment.rather-bad" | translate }}
+          {{ "train.train.selfAssessment.ratherBad" | translate }}
         </button>
         <button mat-raised-button class="neutral" (click)="nextCard(2)">
           {{ "train.train.selfAssessment.neutral" | translate }}
@@ -93,7 +103,7 @@
           class="rather-good"
           (click)="nextCard(1)"
         >
-          {{ "train.train.selfAssessment.rather-good" | translate }}
+          {{ "train.train.selfAssessment.ratherGood" | translate }}
         </button>
         <button
           mat-raised-button

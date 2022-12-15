@@ -160,5 +160,25 @@
       "hint1": "🎉🎈🥳 FINISHED! 🥳🎈🎉",
       "hint2": "You solved all questions in {{time}} seconds. View more details in insights."
     }
+  },
+  "train": {
+    "header": "Train",
+    "start": {
+      "button": "START TO TRAIN",
+      "hint1": "Set the weights for your answers here.",
+      "hint2": "A higher weight leads to cards being shown more often.",
+      "hint3": "Have Fun!"
+    },
+    "train": {
+      "resolve": "RESOLVE",
+      "selfAssessment": {
+        "hint": "How did you do?",
+        "good": "😁",
+        "ratherGood": "😊",
+        "neutral": "🙂",
+        "ratherBad": "😑",
+        "bad": "😞"
+      }
+    }
   }
 }
