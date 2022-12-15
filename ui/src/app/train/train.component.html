@@ -78,19 +78,28 @@
       </mat-card-content>
       <mat-card-actions class="hint">
         <div>{{ "train.train.selfAssessment.hint" | translate }}</div>
+        <button mat-raised-button class="bad" (click)="nextCard(4)">
+          {{ "train.train.selfAssessment.bad" | translate }}
+        </button>
+        <button mat-raised-button class="rather-bad" (click)="nextCard(3)">
+          {{ "train.train.selfAssessment.rather-bad" | translate }}
+        </button>
+        <button mat-raised-button class="neutral" (click)="nextCard(2)">
+          {{ "train.train.selfAssessment.neutral" | translate }}
+        </button>
         <button
           mat-raised-button
           class="span-2"
-          class="bad"
-          (click)="nextCard(false)"
+          class="rather-good"
+          (click)="nextCard(1)"
         >
-          {{ "train.train.selfAssessment.bad" | translate }}
+          {{ "train.train.selfAssessment.rather-good" | translate }}
         </button>
         <button
           mat-raised-button
           class="span-2"
           class="good"
-          (click)="nextCard(true)"
+          (click)="nextCard(0)"
         >
           {{ "train.train.selfAssessment.good" | translate }}
         </button>
@@ -100,26 +109,4 @@
       </mat-card-footer>
     </mat-card>
   </div>
-</div>
-
-<div
-  [ngClass]="{ hidden: state !== 'end' }"
-  animate="fadeIn"
-  class="container end"
->
-  <div class="info">
-    <figure class="highcharts-figure">
-      <div id="container"></div>
-    </figure>
-    <p>{{ "train.end.hint1" | translate }}</p>
-    <p>{{ "train.end.hint2" | translate : { time } }}</p>
-  </div>
-  <button
-    mat-raised-button
-    color="primary"
-    routerLink="/decks"
-    class="full-size"
-  >
-    {{ "train.end.button" | translate }}
-  </button>
 </div>

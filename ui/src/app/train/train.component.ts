@@ -7,6 +7,7 @@ import { Deck } from '../_dto/Deck';
 import * as Highcharts from 'highcharts';
 import { TranslateService } from '@ngx-translate/core';
 import { StopwatchService } from '../services/stopwatch.service';
+import { Assessment, TrainInsight } from '../_dto/Insights';
 
 @Component({
   selector: 'app-train',
@@ -17,20 +18,19 @@ export class TrainComponent implements OnInit {
   get deck_id(): number {
     return parseInt(this.activatedRoute.snapshot.paramMap.get('deck_id') ?? '');
   }
-  state: 'start' | 'train' | 'end' = 'start';
+  state: 'start' | 'train' = 'start';
   flipped = true;
   deck?: Deck;
   cards?: Card[];
+  insights: TrainInsight[] = [];
   currentCard?: Card;
-  time: number = 0;
-  trainData: any[] = [];
+
+  weights = [8, 13, 26, 51, 100];
 
   constructor(
     private readonly cardService: CardService,
     private readonly deckService: DeckService,
-    private readonly activatedRoute: ActivatedRoute,
-    private readonly translateService: TranslateService,
-    private readonly stopwatchService: StopwatchService
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -45,90 +45,52 @@ export class TrainComponent implements OnInit {
 
   start() {
     this.state = 'train';
-    this.nextCard(false);
+    this.currentCard = this.getNextCard();
+    this.flipped = false;
   }
 
   flipCard() {
     this.flipped = true;
-    this.stopwatchService.pause();
   }
-  nextCard(answer: boolean) {
-    if (this.currentCard) {
-      this.trainData.push({
-        cardId: this.currentCard.id,
-        time: this.stopwatchService.getLastTime(),
-        answer,
-      });
-    }
 
-    if (this.cards && this.cards.length > 0) {
-      const id = Math.floor(Math.random() * this.cards.length);
+  nextCard(assessment: Assessment) {
+    const currentInsight: TrainInsight = this.insights.find(
+      (i) => i.cardId === this.currentCard!.id
+    ) || { cardId: this.currentCard!.id!, assessment };
+    currentInsight.assessment = assessment;
 
-      this.currentCard = this.cards.splice(id, 1)[0];
-      this.flipped = false;
-      this.stopwatchService.start();
+    this.insights = [...this.insights, currentInsight];
+
+    this.currentCard = this.getNextCard();
+    this.flipped = false;
+  }
+
+  private getNextCard() {
+    // prefer unrated cards
+    const unratedCards = this.cards!.filter((card) =>
+      this.insights.every((insight) => insight.cardId !== card.id)
+    );
+    if (unratedCards && unratedCards.length > 0) {
+      const id = Math.floor(Math.random() * unratedCards.length);
+      return unratedCards[id];
     } else {
-      this.stop();
+      const weightedCardIds: number[][] = [];
+      this.insights!.forEach((insight) => {
+        // skid currentCard
+        if (this.currentCard && insight.cardId == this.currentCard.id) {
+        } else {
+          weightedCardIds.push(
+            Array(this.weights[insight.assessment]).fill(insight.cardId)
+          );
+        }
+      });
+      const flatWeightedCardIds = weightedCardIds.flat();
+
+      const id =
+        flatWeightedCardIds[
+          Math.floor(Math.random() * flatWeightedCardIds.length)
+        ];
+      return this.cards!.find((card) => card.id === id);
     }
-  }
-
-  stop() {
-    this.time = Math.ceil(this.stopwatchService.getAllTime() / 100) / 10;
-    this.state = 'end';
-    this.stopwatchService.clear();
-
-    const chartOptions: Highcharts.Options = {
-      chart: {
-        backgroundColor: 'rgba(0,0,0,0)',
-        plotBorderWidth: undefined,
-        plotShadow: false,
-        type: 'pie',
-      },
-      title: {
-        text: '',
-        align: 'left',
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            distance: -34,
-          },
-        },
-      },
-      series: [
-        {
-          colorByPoint: true,
-          data: [
-            {
-              name: this.trainData.some((x) => x.answer === false)
-                ? this.translateService.instant(
-                    'train.train.selfAssessment.bad'
-                  )
-                : '',
-              y: this.trainData.filter((x) => x.answer === false).length,
-              // @ts-ignore
-              sliced: true,
-              color: '#E94354',
-            },
-            {
-              name: this.trainData.some((x) => x.answer === true)
-                ? this.translateService.instant(
-                    'train.train.selfAssessment.good'
-                  )
-                : '',
-              y: this.trainData.filter((x) => x.answer === true).length,
-              color: '#6D8C00',
-            },
-          ],
-        },
-      ],
-      credits: {
-        enabled: false,
-      },
-    };
-    Highcharts.chart('container', chartOptions);
   }
 }
