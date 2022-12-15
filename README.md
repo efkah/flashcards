@@ -15,6 +15,8 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
   - [x] 🚀 Feature: Import export
 - [ ] 🚀 Feature: Make Learning functionality
   - [x] 🚀 Feature: Build the Hello new User Deck
+  - [ ] 💡 TODO: Add train/quiz data to insights, preserve the data  
+  - [ ] 💡 TODO: Enable the Sliders, reactiveForms, see Edit Cards etc
   - [ ] 🚀 Feature: Add Deck pictures as blob to indexeddb (users can upload)
   - [ ] 🐛 Fix: Make Language change work again
 - [ ] 🐛 Fix: Remove unused parts (in Manage)
