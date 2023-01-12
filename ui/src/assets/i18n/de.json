@@ -146,6 +146,7 @@
     "header": "Training",
     "start": {
       "button": "TRAINING STARTEN",
+      "balancedMode": "Ausgeglichener Modus",
       "hint1": "Stellen sie hier die Gewichtung der Antworten ein.",
       "hint2": "Eine höhere Gewichtung bedeutet, dass die Karten öfter angezeigt werden.",
       "hint3": "Viel Spass beim Training!"

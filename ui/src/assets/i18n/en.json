@@ -165,6 +165,7 @@
     "header": "Train",
     "start": {
       "button": "START TO TRAIN",
+      "balancedMode": "Balanced mode",
       "hint1": "Set the weights for your answers here.",
       "hint2": "A higher weight leads to cards being shown more often.",
       "hint3": "Have Fun!"

@@ -57,18 +57,18 @@ export class ManageComponent implements OnInit {
       this.translateService.currentLang
     );
 
-    // this.manageForm.valueChanges.subscribe((controls) => {
-    //   this.translateService.use(controls['language']);
+    this.manageForm.valueChanges.subscribe((controls) => {
+      this.translateService.use(controls['language']);
 
-    //   if (controls['sync'] === 'online' && !this.user) {
-    //     this.showOfflineHint = true;
-    //     this.manageForm.controls['sync'].patchValue('offline');
-    //   } else {
-    //     this.manageService.sync = controls['sync'];
-    //   }
+      // if (controls['sync'] === 'online' && !this.user) {
+      //   this.showOfflineHint = true;
+      //   this.manageForm.controls['sync'].patchValue('offline');
+      // } else {
+      //   this.manageService.sync = controls['sync'];
+      // }
 
-    //   // This would be a good place to start a sync
-    // });
+      // This would be a good place to start a sync
+    });
 
     this.manageService
       .getBackendHealth()

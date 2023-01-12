@@ -4,10 +4,9 @@ import { CardService } from '../services/card.service';
 import { DeckService } from '../services/deck.service';
 import { Card } from '../_dto/Card';
 import { Deck } from '../_dto/Deck';
-import * as Highcharts from 'highcharts';
-import { TranslateService } from '@ngx-translate/core';
-import { StopwatchService } from '../services/stopwatch.service';
 import { Assessment, TrainInsight } from '../_dto/Insights';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { pick } from 'highcharts';
 
 @Component({
   selector: 'app-train',
@@ -25,11 +24,19 @@ export class TrainComponent implements OnInit {
   insights: TrainInsight[] = [];
   currentCard?: Card;
 
-  weights = [8, 13, 26, 51, 100];
+  weightForm: FormGroup = this.formBuilder.group({
+    Good: 8,
+    RatherGood: 13,
+    Neutral: 26,
+    RatherBad: 51,
+    Bad: 100,
+    balancedMode: true,
+  });
 
   constructor(
     private readonly cardService: CardService,
     private readonly deckService: DeckService,
+    private readonly formBuilder: FormBuilder,
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
@@ -41,6 +48,10 @@ export class TrainComponent implements OnInit {
     this.cardService.getAll(this.deck_id).subscribe((cards) => {
       this.cards = cards;
     });
+
+    // SMELL: Get this from indexedDb insights one day
+    const s = window.localStorage.getItem('train_' + this.deck_id) ?? '[]';
+    this.insights = JSON.parse(s);
   }
 
   start() {
@@ -61,12 +72,19 @@ export class TrainComponent implements OnInit {
 
     this.insights = [...this.insights, currentInsight];
 
+    // SMELL: Store this in indexedDb insights one day
+    window.localStorage.setItem(
+      'train_' + this.deck_id,
+      JSON.stringify(this.insights)
+    );
+
     this.currentCard = this.getNextCard();
     this.flipped = false;
   }
 
-  private getNextCard() {
+  private getNextCard(): Card {
     // prefer unrated cards
+    // TODO: Get insights from last session
     const unratedCards = this.cards!.filter((card) =>
       this.insights.every((insight) => insight.cardId !== card.id)
     );
@@ -74,23 +92,57 @@ export class TrainComponent implements OnInit {
       const id = Math.floor(Math.random() * unratedCards.length);
       return unratedCards[id];
     } else {
-      const weightedCardIds: number[][] = [];
-      this.insights!.forEach((insight) => {
-        // skid currentCard
-        if (this.currentCard && insight.cardId == this.currentCard.id) {
-        } else {
-          weightedCardIds.push(
-            Array(this.weights[insight.assessment]).fill(insight.cardId)
-          );
-        }
-      });
-      const flatWeightedCardIds = weightedCardIds.flat();
+      const balancedMode = this.weightForm.get('balancedMode')?.value;
+      if (balancedMode) {
+        const weightedCardIds: number[][] = [];
+        this.insights!.forEach((insight) => {
+          // skip currentCard
+          if (this.currentCard && insight.cardId == this.currentCard.id) {
+          } else {
+            weightedCardIds.push(
+              Array(
+                this.weightForm.get(Assessment[insight.assessment])?.value
+              ).fill(insight.cardId)
+            );
+          }
+        });
 
-      const id =
-        flatWeightedCardIds[
-          Math.floor(Math.random() * flatWeightedCardIds.length)
-        ];
-      return this.cards!.find((card) => card.id === id);
+        const flatWeightedCardIds = weightedCardIds.flat();
+        const pickAt = Math.floor(Math.random() * flatWeightedCardIds.length);
+        const id = flatWeightedCardIds[pickAt];
+        return this.cards!.find((card) => card.id === id)!;
+      } else {
+        const asses: number[][] = [];
+        for (const assString in Assessment) {
+          const ass = parseInt(assString);
+          if (!isNaN(ass)) {
+            const assWeight = parseInt(
+              this.weightForm.get(Assessment[ass])?.value
+            );
+            asses.push(Array(assWeight).fill(ass));
+          }
+        }
+        const flatAsses = asses.flat();
+        const pickAt = Math.floor(Math.random() * flatAsses.length);
+        let nextAss = flatAsses[pickAt];
+
+        while (true) {
+          const nextCandidates = this.insights?.filter(
+            (c) => c.assessment === nextAss
+          );
+          if (nextCandidates && nextCandidates.length > 0) {
+            const pickAtCandidate = Math.floor(
+              Math.random() * nextCandidates.length
+            );
+            const nextCandidate = nextCandidates[pickAtCandidate];
+            return this.cards!.find(
+              (card) => card.id === nextCandidate.cardId
+            )!;
+          } else {
+            return this.getNextCard();
+          }
+        }
+      }
     }
   }
 }

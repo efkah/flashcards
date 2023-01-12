@@ -8,37 +8,58 @@
 <div *ngIf="state === 'start'" animate="fadeIn" class="container start">
   <div class="info">
     <p>{{ "train.start.hint1" | translate }}</p>
-    <form>
+    <form [formGroup]="weightForm!">
       <div class="button-dummy good">
         {{ "train.train.selfAssessment.good" | translate }}
       </div>
-      <mat-slider min="1" max="100" step="1" value="8" disabled>
+      <mat-slider min="1" max="100" step="1" value="8" formControlName="Good">
         <input matSliderThumb />
       </mat-slider>
       <div class="button-dummy rather-good">
         {{ "train.train.selfAssessment.ratherGood" | translate }}
       </div>
-      <mat-slider min="1" max="100" step="1" value="14" disabled>
+      <mat-slider
+        min="1"
+        max="100"
+        step="1"
+        value="14"
+        formControlName="RatherGood"
+      >
         <input matSliderThumb />
       </mat-slider>
       <div class="button-dummy neutral">
         {{ "train.train.selfAssessment.neutral" | translate }}
       </div>
-      <mat-slider min="1" max="100" step="1" value="26" disabled>
+      <mat-slider
+        min="1"
+        max="100"
+        step="1"
+        value="26"
+        formControlName="Neutral"
+      >
         <input matSliderThumb />
       </mat-slider>
       <div class="button-dummy rather-bad">
         {{ "train.train.selfAssessment.ratherBad" | translate }}
       </div>
-      <mat-slider min="1" max="100" step="1" value="51" disabled>
+      <mat-slider
+        min="1"
+        max="100"
+        step="1"
+        value="51"
+        formControlName="RatherBad"
+      >
         <input matSliderThumb />
       </mat-slider>
       <div class="button-dummy bad">
         {{ "train.train.selfAssessment.bad" | translate }}
       </div>
-      <mat-slider min="1" max="100" step="1" value="100" disabled>
+      <mat-slider min="1" max="100" step="1" value="100" formControlName="Bad">
         <input matSliderThumb />
       </mat-slider>
+      <mat-slide-toggle formControlName="balancedMode">
+        {{ "train.start.balancedMode" | translate }}
+      </mat-slide-toggle>
     </form>
     <p>{{ "train.start.hint2" | translate }}</p>
     <p>{{ "train.start.hint3" | translate }}</p>
