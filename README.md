@@ -13,15 +13,14 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
 - [x] 🚀 Feature: Save Data in indexedDb
   - [x] 🐛 Fix: Card Preview does not work
   - [x] 🚀 Feature: Import export
-- [ ] 🚀 Feature: Make Learning functionality
+- [x] 🚀 Feature: Make Learning functionality
   - [x] 🚀 Feature: Build the Hello new User Deck
   - [x] 🐛 Fix: Make Language change work again
   - [x] 🐛 Fix: Fix Desktop Mode
-  - [ ] 💡 TODO: Save data somewhere, if not in insights use localStorage
 - [ ] 🐛 Fix: Remove unused parts (in Manage)
 - [ ] 🚧 AR: Publish in App Store
 
-### Release 1.1 (Planned)
+### Release 1.1 (Planning)
 
 - [ ] 🚀 Feature: Add Deck pictures as blob to indexeddb (users can upload)
 - [ ] 🚀 Feature: Add Insights
