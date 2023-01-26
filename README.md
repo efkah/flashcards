@@ -17,7 +17,7 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
   - [x] 🚀 Feature: Build the Hello new User Deck
   - [x] 🐛 Fix: Make Language change work again
   - [x] 🐛 Fix: Fix Desktop Mode
-- [ ] 🐛 Fix: Remove unused parts (in Manage)
+- [x] 🐛 Fix: Remove unused parts (in Manage)
 - [ ] 🚧 AR: Publish in App Store
 
 ### Release 1.1 (Planning)
