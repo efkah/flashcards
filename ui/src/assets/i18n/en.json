@@ -91,14 +91,8 @@
     "subHeaders": {
       "profile": "Your profile",
       "languages": "Language settings",
-      "sync": "Syncronization settings",
       "database": "Database"
     },
-    "credentials": "You are currently logged in as",
-    "noCredentials": "Logging in will allow you to sync your cards accross devices.",
-    "signOut": "Sign out",
-    "signInWithGoogle": "Sign in with Google",
-    "offlineError": "Online Mode is only available when logged in.",
     "language": "Language",
     "importDatabase": "IMPORT JSON-FILE",
     "exportDatabase": "EXPORT TO JSON",
@@ -106,13 +100,6 @@
       "de": "German",
       "en": "English"
     },
-    "sync": "App mode",
-    "syncStates": {
-      "online": "Online",
-      "offline": "Offline"
-    },
-    "backendHealth": "Backend health",
-    "databaseHealth": "Database health",
     "snackBar": {
       "claimed": "Claimed unowned decks.",
       "resetted": "Database has been resetted."

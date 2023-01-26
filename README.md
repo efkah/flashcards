@@ -23,6 +23,17 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
 ### Release 1.1 (Planning)
 
 - [ ] 🚀 Feature: Add Deck pictures as blob to indexeddb (users can upload)
+
+```js
+function encodeImageFileAsURL(element) {
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result)
+  }
+  reader.readAsDataURL(file);
+```
+
 - [ ] 🚀 Feature: Add Insights
   - [ ] 💡 TODO: Add train/quiz data to insights, preserve the data  
   - [ ] 💡 TODO: Draw ideas of how insights could look like  

@@ -91,14 +91,8 @@
     "subHeaders": {
       "profile": "Dein Profil",
       "languages": "Spracheinstellungen",
-      "sync": "Synchronisationseinstellungen",
       "database": "Datenbank"
     },
-    "credentials": "Du bist momentan angemeldet als",
-    "noCredentials": "Anmeldung ermöglicht Synchronisation über mehrere Geräte.",
-    "signOut": "Abmelden",
-    "signInWithGoogle": "Über Google anmelden",
-    "offlineError": "Online Modus - Nur mit Anmeldung verfügbar.",
     "language": "Sprache",
     "importDatabase": "VON JSON-DATEI IMPORTIEREN",
     "exportDatabase": "ALS JSON-DATEI EXPORTIEREN",
@@ -106,13 +100,6 @@
       "de": "Deutsch",
       "en": "Englisch"
     },
-    "sync": "Anwendungsmodus",
-    "syncStates": {
-      "online": "Online",
-      "offline": "Offline"
-    },
-    "backendHealth": "Backend Verfügbarkeit",
-    "databaseHealth": "Datenbank Verfügbarkeit",
     "snackBar": {
       "claimed": "Herrenlose Kartensatz in Besitz genommen.",
       "resetted": "Datenbank wurde zurückgesetzt."

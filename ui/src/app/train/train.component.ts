@@ -84,7 +84,6 @@ export class TrainComponent implements OnInit {
 
   private getNextCard(): Card {
     // prefer unrated cards
-    // TODO: Get insights from last session
     const unratedCards = this.cards!.filter((card) =>
       this.insights.every((insight) => insight.cardId !== card.id)
     );
