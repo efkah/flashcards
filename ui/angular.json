@@ -78,7 +78,8 @@
                 }
               ],
               "outputHashing": "all",
-              "outputPath": "../docs"
+              "outputPath": "../docs",
+              "baseHref": "flashcards"
             },
             "development": {
               "buildOptimizer": false,
