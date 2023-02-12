@@ -40,6 +40,18 @@ h1 .back {
   bottom: 5px;
 }
 
+h1 .md-back {
+  bottom: 5px;
+  font-family: "Material Icons Round";
+  -webkit-font-smoothing: antialiased;
+  padding: 5px;
+  margin: 0 3px 0 0;
+  text-decoration: none;
+  color: black;
+  top: 3px;
+  position: relative;
+}
+
 html {
   position: fixed;
   top: 0;
@@ -67,4 +79,8 @@ html {
   text-overflow: ellipsis;
   overflow: hidden;
   display: block;
+}
+
+button.full-size {
+  width: 100%;
 }

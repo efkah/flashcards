@@ -1,0 +1,9 @@
+{
+  "name": "Flashcards",
+  "short_name": "Flashcards",
+  "theme_color": "#f1ede9",
+  "background_color": "#e7e0d9",
+  "display": "fullscreen",
+  "scope": "./",
+  "start_url": "./"
+}

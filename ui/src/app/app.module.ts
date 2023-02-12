@@ -35,11 +35,16 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSelectModule } from '@angular/material/select';
 import { HomeComponent } from './home/home.component';
-import {
-  GoogleLoginProvider,
-  SocialAuthServiceConfig,
-  SocialLoginModule,
-} from 'angularx-social-login';
+// import {
+//   GoogleLoginProvider,
+//   SocialAuthServiceConfig,
+//   SocialLoginModule,
+// } from 'angularx-social-login';
+import { QuizComponent } from './quiz/quiz.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { TrainComponent } from './train/train.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,6 +63,8 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     CardEditComponent,
     DeckHelpComponent,
     HomeComponent,
+    QuizComponent,
+    TrainComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +82,9 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     HttpClientModule,
     MatSelectModule,
     MatProgressBarModule,
-    SocialLoginModule,
+    HighchartsChartModule,
+    MatSliderModule,
+    MatSlideToggleModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
     TranslateModule.forRoot({
       loader: {
@@ -93,18 +102,18 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
   ],
   providers: [
     MatIconRegistry,
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: true,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(CLIENT_ID),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: true,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(CLIENT_ID),
+    //       },
+    //     ],
+    //   } as SocialAuthServiceConfig,
+    // },
   ],
   bootstrap: [AppComponent],
 })

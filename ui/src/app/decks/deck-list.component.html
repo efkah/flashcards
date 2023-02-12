@@ -22,10 +22,18 @@
         {{ "deckList.actions.edit" | translate }}
       </button>
       <div class="spacer-16"></div>
-      <button mat-raised-button color="accent" (click)="testDeck(deck.id)">
+      <button
+        mat-raised-button
+        color="accent"
+        routerLink="/decks/{{ deck.id }}/quiz"
+      >
         {{ "deckList.actions.quiz" | translate }}
       </button>
-      <button mat-raised-button color="primary" (click)="trainDeck(deck.id)">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/decks/{{ deck.id }}/train"
+      >
         {{ "deckList.actions.train" | translate }}
       </button>
     </mat-card-actions>

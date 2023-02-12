@@ -1,0 +1,143 @@
+<h1>
+  <button class="back" routerLink="/decks" mat-icon-button aria-label="Go back">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span>{{ "train.header" | translate }}</span>
+</h1>
+
+<div *ngIf="state === 'start'" animate="fadeIn" class="container start">
+  <div class="info">
+    <p>{{ "train.start.hint1" | translate }}</p>
+    <form [formGroup]="weightForm!">
+      <div class="button-dummy good">
+        {{ "train.train.selfAssessment.good" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="8" formControlName="Good">
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy rather-good">
+        {{ "train.train.selfAssessment.ratherGood" | translate }}
+      </div>
+      <mat-slider
+        min="1"
+        max="100"
+        step="1"
+        value="14"
+        formControlName="RatherGood"
+      >
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy neutral">
+        {{ "train.train.selfAssessment.neutral" | translate }}
+      </div>
+      <mat-slider
+        min="1"
+        max="100"
+        step="1"
+        value="26"
+        formControlName="Neutral"
+      >
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy rather-bad">
+        {{ "train.train.selfAssessment.ratherBad" | translate }}
+      </div>
+      <mat-slider
+        min="1"
+        max="100"
+        step="1"
+        value="51"
+        formControlName="RatherBad"
+      >
+        <input matSliderThumb />
+      </mat-slider>
+      <div class="button-dummy bad">
+        {{ "train.train.selfAssessment.bad" | translate }}
+      </div>
+      <mat-slider min="1" max="100" step="1" value="100" formControlName="Bad">
+        <input matSliderThumb />
+      </mat-slider>
+      <mat-slide-toggle formControlName="balancedMode">
+        {{ "train.start.balancedMode" | translate }}
+      </mat-slide-toggle>
+    </form>
+    <p>{{ "train.start.hint2" | translate }}</p>
+    <p>{{ "train.start.hint3" | translate }}</p>
+  </div>
+  <button mat-raised-button color="primary" (click)="start()" class="full-size">
+    {{ "train.start.button" | translate }}
+  </button>
+</div>
+
+<div *ngIf="state === 'train'" animate="fadeIn" class="container">
+  <div class="flashcard rotate-y" [ngClass]="{ flipped: flipped }">
+    <mat-card class="front" [ngClass]="{ 'mat-elevation-z0': flipped }">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title> {{ "cardView.question" | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <markdown *ngIf="!flipped">
+          {{ currentCard?.question }}
+        </markdown>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          class="full-size"
+          color="primary"
+          (click)="flipCard()"
+        >
+          {{ "train.train.resolve" | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" value="100"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card class="back" [ngClass]="{ 'mat-elevation-z0': !flipped }">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title> {{ "cardView.answer" | translate }}</mat-card-title>
+        <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <markdown *ngIf="flipped">
+          {{ currentCard?.answer }}
+        </markdown>
+      </mat-card-content>
+      <mat-card-actions class="hint">
+        <div>{{ "train.train.selfAssessment.hint" | translate }}</div>
+        <button mat-raised-button class="bad" (click)="nextCard(4)">
+          {{ "train.train.selfAssessment.bad" | translate }}
+        </button>
+        <button mat-raised-button class="rather-bad" (click)="nextCard(3)">
+          {{ "train.train.selfAssessment.ratherBad" | translate }}
+        </button>
+        <button mat-raised-button class="neutral" (click)="nextCard(2)">
+          {{ "train.train.selfAssessment.neutral" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          class="span-2"
+          class="rather-good"
+          (click)="nextCard(1)"
+        >
+          {{ "train.train.selfAssessment.ratherGood" | translate }}
+        </button>
+        <button
+          mat-raised-button
+          class="span-2"
+          class="good"
+          (click)="nextCard(0)"
+        >
+          {{ "train.train.selfAssessment.good" | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

@@ -34,10 +34,4 @@ export class ManageService {
   getDatabaseHealth(): Observable<string> {
     return this.httpClient.get<string>('/api/databasehealth');
   }
-
-  getToken() {
-    return this.httpClient.get('/api/token', {
-      headers: new HttpHeaders().set('Authorization', this.token),
-    });
-  }
 }

@@ -1,34 +1,5 @@
 <h1>{{ "manage.header" | translate }}</h1>
 
-<h2>{{ "manage.subHeaders.profile" | translate }}</h2>
-<ng-container *ngIf="user">
-  <h3>{{ "manage.credentials" | translate }}</h3>
-  <div class="user">
-    <img src="{{ user.photoUrl }}" />
-    <h3>{{ user.name }}</h3>
-    <div>{{ user.email }}</div>
-    <pre>{{ user.id }}</pre>
-  </div>
-  <button
-    mat-raised-button
-    class="signout"
-    animate="fadeIn"
-    color="warn"
-    (click)="signOut()"
-  >
-    {{ "manage.signOut" | translate }}
-  </button>
-</ng-container>
-
-<ng-container *ngIf="!user">
-  <a mat-stroked-button (click)="signInWithGoogle()" class="google-signin">
-    {{ "manage.signInWithGoogle" | translate }}
-  </a>
-  <h3>
-    <mat-icon>priority_high</mat-icon>{{ "manage.noCredentials" | translate }}
-  </h3>
-</ng-container>
-
 <form [formGroup]="manageForm">
   <h2>{{ "manage.subHeaders.languages" | translate }}</h2>
 
@@ -40,30 +11,18 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-
-  <h2>{{ "manage.subHeaders.sync" | translate }}</h2>
-
-  <mat-form-field>
-    <mat-label>{{ "manage.sync" | translate }}</mat-label>
-    <mat-select formControlName="sync">
-      <mat-option *ngFor="let state of syncStates" [value]="state">
-        {{ "manage.syncStates." + state | translate }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-error *ngIf="showOfflineHint">{{
-    "manage.offlineError" | translate
-  }}</mat-error>
-  <div>{{ "manage.backendHealth" | translate }}: {{ backendHealth }}</div>
-  <div>{{ "manage.databaseHealth" | translate }}: {{ databaseHealth }}</div>
 </form>
 
 <div class="db-settings">
   <h2>{{ "manage.subHeaders.database" | translate }}</h2>
 
   <div (click)="uploadFile.click()">
-    <button mat-raised-button animate="fadeIn" color="primary">
+    <button
+      mat-raised-button
+      animate="fadeIn"
+      color="primary"
+      class="full-size"
+    >
       {{ "manage.importDatabase" | translate }}
     </button>
     <input
@@ -80,6 +39,7 @@
     animate="fadeIn"
     color="primary"
     (click)="exportDatabase()"
+    class="full-size"
   >
     {{ "manage.exportDatabase" | translate }}
   </button>
@@ -90,6 +50,7 @@
     *ngIf="!confirmReset"
     color="warn"
     (click)="resetDatabase()"
+    class="full-size"
   >
     {{ "manage.resetDatabase" | translate }}
   </button>
@@ -100,6 +61,7 @@
     *ngIf="confirmReset"
     color="primary"
     (click)="confirmResetDatabase()"
+    class="full-size"
   >
     {{ "manage.confirmResetDatabase" | translate }}
   </button>
