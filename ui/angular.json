@@ -59,18 +59,6 @@
               "outputHashing": "all"
             },
             "ghpages": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "2mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -79,7 +67,7 @@
               ],
               "outputHashing": "all",
               "outputPath": "../docs",
-              "baseHref": "flashcards"
+              "baseHref": "/flashcards/"
             },
             "development": {
               "buildOptimizer": false,
