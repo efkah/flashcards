@@ -1,0 +1,153 @@
+{
+  "title": "Lernkarten",
+  "pwa-hint": "Speichere diese Seite jetzt als App, indem du sie über das Browsermenü zum Desktop deines Apple oder Android Geräts hinzufügst.",
+  "common.close": "Schliessen",
+  "error": {
+    "mandatory": "Dies ist ein Pflichtfeld."
+  },
+  "toolbar": {
+    "decks": "Kartensätze",
+    "insights": "Diagramme",
+    "manage": "Verwaltung"
+  },
+  "deckList": {
+    "header": "Kartensätze",
+    "name": "Name",
+    "description": "Beschreibung",
+    "actions": {
+      "edit": "BEARBEITEN",
+      "quiz": "QUIZ",
+      "train": "TRAINING",
+      "create": "ERSTELLEN",
+      "cancel": "ABBRECHEN",
+      "addNewDeck": "KARTENSATZ HINZUFÜGEN"
+    },
+    "snackBar": {
+      "added": "Kartensatz hinzugefügt!"
+    }
+  },
+  "deckEdit": {
+    "header": "Details des Kartensatzes",
+    "subHeaders": {
+      "editProperties": "Eigenschaften bearbeiten",
+      "viewAllCards": "Alle Karten ansehen",
+      "actions": "Aktionen"
+    },
+    "name": "Name",
+    "description": "Beschreibung",
+    "question": "Frage",
+    "answer": "Antwort",
+    "actions": {
+      "edit": "BEARBEITEN",
+      "view": "ANSEHEN",
+      "create": "ERSTELLEN",
+      "cancel": "ABBRECHEN",
+      "update": "ÄNDERUNGEN SPEICHERN",
+      "addNewCard": "KARTE HINZUFÜGEN",
+      "delete": "DECK LÖSCHEN",
+      "confirmDelete": "LÖSCHEN BESTÄTIGEN"
+    },
+    "snackBar": {
+      "added": "Karte hinzugefügt!",
+      "updated": "Eigenschaften aktualisiert!",
+      "deleted": "Kartensatz gelöscht."
+    }
+  },
+  "cardEdit": {
+    "header": "Details der Karte",
+    "subHeaders": {
+      "editProperties": "Eigenschaften bearbeiten",
+      "actions": "Aktionen"
+    },
+    "name": "Name",
+    "description": "Beschreibung",
+    "question": "Frage",
+    "answer": "Antwort",
+    "actions": {
+      "update": "ÄNDERUNGEN SPEICHERN",
+      "reset": "ZURÜCKSETZEN",
+      "delete": "KARTE LÖSCHEN",
+      "confirmDelete": "LÖSCHEN BESTÄTIGEN"
+    },
+    "snackBar": {
+      "updated": "Karte aktualisiert!",
+      "deleted": "Karte gelöscht."
+    }
+  },
+  "cardView": {
+    "header": "Kartenvorschau",
+    "question": "Frage",
+    "answer": "Antwort",
+    "actions": {
+      "viewAnswer": "ANTWORT AUFDECKEN",
+      "viewQuestion": "FRAGE AUFDECKEN"
+    }
+  },
+  "insights": {
+    "header": "insights will come soon!"
+  },
+  "manage": {
+    "header": "Anwendungsverwaltung",
+    "subHeaders": {
+      "profile": "Dein Profil",
+      "languages": "Spracheinstellungen",
+      "database": "Datenbank"
+    },
+    "language": "Sprache",
+    "importDatabase": "VON JSON-DATEI IMPORTIEREN",
+    "exportDatabase": "ALS JSON-DATEI EXPORTIEREN",
+    "languages": {
+      "de": "Deutsch",
+      "en": "Englisch"
+    },
+    "snackBar": {
+      "claimed": "Herrenlose Kartensatz in Besitz genommen.",
+      "resetted": "Datenbank wurde zurückgesetzt."
+    },
+    "resetDatabase": "DATENBANK ZURÜCKSETZEN",
+    "confirmResetDatabase": "ZURÜCKSETZEN BESTÄTIGEN"
+  },
+  "quiz": {
+    "header": "Quiz",
+    "start": {
+      "button": "QUIZ STARTEN",
+      "hint1": "Um das Quiz zu starten, drücke den Knopf unten.",
+      "hint2": "Im Quiz, drücke 'AUFLÖSEN' um das Ergebnis anzuzeigen, dann 'JA' oder 'NEIN' um fortzufahren.",
+      "hint3": "Deine Zeit wird gestoppt, als bleib konzentriert!"
+    },
+    "quiz": {
+      "resolve": "AUFLÖSEN",
+      "selfAssessment": {
+        "hint": "Wie warst du?",
+        "good": "GUT",
+        "bad": "SCHLECHT"
+      }
+    },
+    "end": {
+      "button": "ZURÜCK ZUM KARTENSATZ",
+      "hint1": "🎉🎈🥳 GESCHAFFT! 🥳🎈🎉",
+      "hint2": "Du hast die Fragen in {{time}} Sekunden beantwortet. Mehr Details gibt bei den Diagrammen."
+    }
+  },
+  "train": {
+    "header": "Training",
+    "start": {
+      "button": "TRAINING STARTEN",
+      "balancedMode": "Ausgeglichener Modus",
+      "hint1": "Stellen sie hier die Gewichtung der Antworten ein.",
+      "hint2": "Eine höhere Gewichtung bedeutet, dass die Karten öfter angezeigt werden.",
+      "hint3": "Viel Spass beim Training!"
+    },
+    "train": {
+      "resolve": "AUFLÖSEN",
+      "selfAssessment": {
+        "hint": "Wie gut warst du?",
+        "good": "😁",
+        "ratherGood": "😊",
+        "neutral": "🙂",
+        "ratherBad": "😑",
+        "bad": "😞"
+      }
+    }
+  }
+}

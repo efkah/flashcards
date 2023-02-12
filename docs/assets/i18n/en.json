@@ -1,0 +1,172 @@
+{
+  "title": "Flashcards",
+  "pwa-hint": "Add this site as an App by tapping the browser menu on your Apple or Android device and  save it to your homescreen.",
+  "common.close": "Close",
+  "error": {
+    "mandatory": "This field is mandatory."
+  },
+  "toolbar": {
+    "decks": "Decks",
+    "insights": "Insights",
+    "manage": "Manage"
+  },
+  "deckList": {
+    "header": "Decks",
+    "name": "Name",
+    "description": "Description",
+    "actions": {
+      "edit": "EDIT",
+      "quiz": "QUIZ",
+      "train": "TRAIN",
+      "create": "CREATE",
+      "cancel": "CANCEL",
+      "addNewDeck": "ADD NEW DECK"
+    },
+    "snackBar": {
+      "added": "Added new Deck!"
+    }
+  },
+  "deckEdit": {
+    "header": "Deck Details",
+    "subHeaders": {
+      "editProperties": "Edit Properties",
+      "viewAllCards": "View All Cards",
+      "actions": "Actions"
+    },
+    "name": "Name",
+    "description": "Description",
+    "question": "Question",
+    "answer": "Answer",
+    "actions": {
+      "edit": "EDIT",
+      "view": "VIEW",
+      "create": "CREATE",
+      "cancel": "CANCEL",
+      "update": "UPDATE",
+      "addNewCard": "ADD NEW CARD",
+      "delete": "DELETE DECK",
+      "confirmDelete": "CONFIRM DELETE DECK"
+    },
+    "snackBar": {
+      "added": "Added new Card!",
+      "updated": "Updated Properties!",
+      "deleted": "Deck deleted."
+    }
+  },
+  "cardEdit": {
+    "header": "Card Details",
+    "subHeaders": {
+      "editProperties": "Edit Properties",
+      "actions": "Actions"
+    },
+    "name": "Name",
+    "description": "Description",
+    "question": "Question",
+    "answer": "Answer",
+    "actions": {
+      "update": "UPDATE",
+      "reset": "RESET",
+      "delete": "DELETE CARD",
+      "confirmDelete": "CONFIRM DELETE CARD"
+    },
+    "snackBar": {
+      "updated": "Updated Card!",
+      "deleted": "Card deleted."
+    }
+  },
+  "cardView": {
+    "header": "Card Preview",
+    "question": "Question",
+    "answer": "Answer",
+    "actions": {
+      "viewAnswer": "VIEW ANSWER",
+      "viewQuestion": "VIEW QUESTION"
+    }
+  },
+  "insights": {
+    "header": "insights will come soon!"
+  },
+  "manage": {
+    "header": "Application Management",
+    "subHeaders": {
+      "profile": "Your profile",
+      "languages": "Language settings",
+      "database": "Database"
+    },
+    "language": "Language",
+    "importDatabase": "IMPORT JSON-FILE",
+    "exportDatabase": "EXPORT TO JSON",
+    "languages": {
+      "de": "German",
+      "en": "English"
+    },
+    "snackBar": {
+      "claimed": "Claimed unowned decks.",
+      "resetted": "Database has been resetted."
+    },
+    "resetDatabase": "RESET DATABASE",
+    "confirmResetDatabase": "CONFIRM RESET DATABASE"
+  },
+  "aria": {
+    "toolbar": {
+      "decks": "View your Decks, test yourself",
+      "insights": "View Insights and Analytics",
+      "public": "Share your decks and view shared decks"
+    },
+    "decks": {
+      "help": "Help"
+    },
+    "deckEdit": {
+      "goBack": "Go back"
+    },
+    "cardView": {
+      "goBack": "Go back"
+    },
+    "cardEdit": {
+      "goBack": "Go back"
+    }
+  },
+  "quiz": {
+    "header": "Quiz",
+    "start": {
+      "button": "START QUIZ",
+      "hint1": "To start the quiz, press the button below.",
+      "hint2": "In the quiz, press 'RESOLVE' to show the result, then press 'YES' or 'NO' to continue.",
+      "hint3": "Your time will be taken, so stay concentrated!"
+    },
+    "quiz": {
+      "resolve": "RESOLVE",
+      "selfAssessment": {
+        "hint": "How did you do?",
+        "good": "GOOD",
+        "bad": "BAD"
+      }
+    },
+    "end": {
+      "button": "BACK TO DECK",
+      "hint1": "🎉🎈🥳 FINISHED! 🥳🎈🎉",
+      "hint2": "You solved all questions in {{time}} seconds. View more details in insights."
+    }
+  },
+  "train": {
+    "header": "Train",
+    "start": {
+      "button": "START TO TRAIN",
+      "balancedMode": "Balanced mode",
+      "hint1": "Set the weights for your answers here.",
+      "hint2": "A higher weight leads to cards being shown more often.",
+      "hint3": "Have Fun!"
+    },
+    "train": {
+      "resolve": "RESOLVE",
+      "selfAssessment": {
+        "hint": "How did you do?",
+        "good": "😁",
+        "ratherGood": "😊",
+        "neutral": "🙂",
+        "ratherBad": "😑",
+        "bad": "😞"
+      }
+    }
+  }
+}

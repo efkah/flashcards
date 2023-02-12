@@ -4,6 +4,7 @@
   "scripts": {
     "start": "npx ng serve --proxy-config proxy.conf.json",
     "build": "npx ng build",
+    "build:ghpages": "npx ng build --configuration ghpages",
     "watch": "npx ng build --watch --configuration development",
     "http-server": "npx http-server -p 80 -c-1 dist/ui",
     "ngrok": "npx ngrok http --host-header=rewrite --region=eu 80",
