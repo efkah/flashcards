@@ -18,7 +18,6 @@ This was a monorepo with backend at one point, hence excuse the structure. For d
   - [x] 🐛 Fix: Make Language change work again
   - [x] 🐛 Fix: Fix Desktop Mode
 - [x] 🐛 Fix: Remove unused parts (in Manage)
-- [ ] 🚧 AR: Publish in App Store
 
 ### Release 1.1 (Planning)
 
@@ -45,3 +44,9 @@ insights.decks[id].cards[id].quiz[session].good = true
 insights.decks[id].cards[id].train[session].repeated = 5
 insights.decks[id].cards[id].train[session].assessments[id] = Good
 ```
+
+- [ ] 🚧 AR: Replace Highcharts with d3.js
+ 
+### Future Releases
+
+- [ ] 🚧 AR: Publish in App Store
