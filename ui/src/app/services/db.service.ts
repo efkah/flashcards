@@ -70,8 +70,7 @@ export class DbService extends Dexie {
     return JSON.stringify({ decks, cards });
   }
 
-  async populateFromJSON(text: string) {
-    const data = JSON.parse(text);
+  async populateFromJSON(data: any) {
     await this.transaction('rw', 'decks', 'cards', async () => {
       this.decks.clear();
       this.cards.clear();

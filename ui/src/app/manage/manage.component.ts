@@ -65,6 +65,7 @@ export class ManageComponent implements OnInit {
     var fileReader = new FileReader();
     fileReader.onload = (e) => {
       const result = JSON.parse(e.target?.result as string);
+      console.info(e.target, result);
       this.dbService.populateFromJSON(result);
     };
     fileReader.readAsText(input.files![0]);
@@ -74,7 +75,7 @@ export class ManageComponent implements OnInit {
     const data = await this.dbService.exportAsJSON();
     const fileName = 'flashcards-export.json',
       a = document.createElement('a'),
-      json = JSON.stringify(data),
+      json = data,
       blob = new Blob([json], { type: 'octet/stream' }),
       url = window.URL.createObjectURL(blob);
     document.body.appendChild(a);
