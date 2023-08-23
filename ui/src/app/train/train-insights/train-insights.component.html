@@ -1,0 +1,30 @@
+Current State
+<div class="bars">
+  <div class="bar bad first" [style.width]="(bad / cardsCount!) * 100 + '%'">
+    {{ bad }}
+  </div>
+  <div
+    class="bar rather-bad"
+    [style.width]="(ratherBad / cardsCount!) * 100 + '%'"
+  >
+    {{ ratherBad }}
+  </div>
+  <div class="bar neutral" [style.width]="(neutral / cardsCount!) * 100 + '%'">
+    {{ neutral }}
+  </div>
+  <div
+    class="bar rather-good"
+    [style.width]="(ratherGood / cardsCount!) * 100 + '%'"
+  >
+    {{ ratherGood }}
+  </div>
+  <div class="bar good" [style.width]="(good / cardsCount!) * 100 + '%'">
+    {{ good }}
+  </div>
+  <div
+    class="bar unrated last"
+    [style.width]="(unrated / cardsCount!) * 100 + '%'"
+  >
+    {{ unrated }}
+  </div>
+</div>

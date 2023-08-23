@@ -27,11 +27,11 @@
   .toolbar {
     grid-area: toolbar;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     @media only screen and (min-width: 720px) {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 64px);
+      grid-template-rows: repeat(2, 64px);
       height: 100%;
     }
 

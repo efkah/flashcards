@@ -108,6 +108,12 @@
         </markdown>
       </mat-card-content>
       <mat-card-actions class="hint">
+        <div>
+          <app-train-insights
+            [data]="insights"
+            [cardsCount]="cards?.length"
+          ></app-train-insights>
+        </div>
         <div>{{ "train.train.selfAssessment.hint" | translate }}</div>
         <button mat-raised-button class="bad" (click)="nextCard(4)">
           {{ "train.train.selfAssessment.bad" | translate }}

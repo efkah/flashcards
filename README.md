@@ -33,7 +33,15 @@ function encodeImageFileAsURL(element) {
   reader.readAsDataURL(file);
 ```
 
-- [ ] 🚀 Feature: Add Insights
+- [ ] 🚀 Feature: Move Manage to top right, remove main-navigation
+- [ ] 🚀 Feature: In place Edit for Cards while in session mode (for quick correction like wrong spelling)
+- [ ] 🚀 Feature: Make Import Export use ExcelJS
+- [ ] 🚧 AR: Replace Highcharts with d3.js
+- [ ] 🚧 AR: Publish in App Store
+ 
+### Dismissed and Future Ideas
+
+- [ ] 🚀 Dismissed Feature: Add Insights (a place where to look at your training statistics)
   - [ ] 💡 TODO: Add train/quiz data to insights, preserve the data  
   - [ ] 💡 TODO: Draw ideas of how insights could look like  
   - [ ] 💡 TODO: Draw ideas of insights could enrich train/quiz
@@ -44,9 +52,3 @@ insights.decks[id].cards[id].quiz[session].good = true
 insights.decks[id].cards[id].train[session].repeated = 5
 insights.decks[id].cards[id].train[session].assessments[id] = Good
 ```
-
-- [ ] 🚧 AR: Replace Highcharts with d3.js
- 
-### Future Releases
-
-- [ ] 🚧 AR: Publish in App Store

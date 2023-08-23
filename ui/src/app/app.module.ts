@@ -45,6 +45,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { TrainComponent } from './train/train.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { TrainInsightsComponent } from './train/train-insights/train-insights.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -65,6 +66,7 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     HomeComponent,
     QuizComponent,
     TrainComponent,
+    TrainInsightsComponent,
   ],
   imports: [
     BrowserModule,
