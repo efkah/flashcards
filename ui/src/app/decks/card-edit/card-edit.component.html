@@ -89,10 +89,16 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" type="submit" form="editForm">
+    <button mat-flat-button color="primary" type="submit" form="editForm">
       {{ "cardEdit.actions.update" | translate }}
     </button>
-    <button mat-button color="primary" type="reset" form="editForm" disabled>
+    <button
+      mat-stroked-button
+      color="primary"
+      type="reset"
+      form="editForm"
+      disabled
+    >
       <!-- TODO: Could't get reset to work, disabled it for now -->
       {{ "cardEdit.actions.reset" | translate }}
     </button>
@@ -102,7 +108,7 @@
 <h2>{{ "cardEdit.subHeaders.actions" | translate }}</h2>
 
 <button
-  mat-raised-button
+  mat-flat-button
   class="delete-button"
   animate="fadeIn"
   *ngIf="!confirmDelete"
@@ -113,7 +119,7 @@
 </button>
 
 <button
-  mat-raised-button
+  mat-flat-button
   class="delete-button"
   animate="fadeIn"
   *ngIf="confirmDelete"

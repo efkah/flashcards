@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+  $background: map.get($color-config, background);
+  $foreground: map.get($color-config, foreground);
+
+  .mat-card {
+    &.card {
+      .mat-card-content code {
+        &::before {
+          background: linear-gradient(
+            to top,
+            map.get($background, card),
+            rgba(255, 255, 255, 0)
+          );
+        }
+      }
+    }
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+}

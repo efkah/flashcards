@@ -17,12 +17,7 @@
   <h2>{{ "manage.subHeaders.database" | translate }}</h2>
 
   <div (click)="uploadFile.click()">
-    <button
-      mat-raised-button
-      animate="fadeIn"
-      color="primary"
-      class="full-size"
-    >
+    <button mat-flat-button animate="fadeIn" color="primary" class="full-size">
       {{ "manage.importDatabase" | translate }}
     </button>
     <input
@@ -35,7 +30,7 @@
   </div>
 
   <button
-    mat-raised-button
+    mat-flat-button
     animate="fadeIn"
     color="primary"
     (click)="exportDatabase()"
@@ -45,7 +40,7 @@
   </button>
 
   <button
-    mat-raised-button
+    mat-flat-button
     animate="fadeIn"
     *ngIf="!confirmReset"
     color="warn"
@@ -56,7 +51,7 @@
   </button>
 
   <button
-    mat-raised-button
+    mat-flat-button
     animate="fadeIn"
     *ngIf="confirmReset"
     color="primary"
