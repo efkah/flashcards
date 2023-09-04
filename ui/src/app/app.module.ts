@@ -41,7 +41,6 @@ import { HomeComponent } from './home/home.component';
 //   SocialLoginModule,
 // } from 'angularx-social-login';
 import { QuizComponent } from './quiz/quiz.component';
-import { HighchartsChartModule } from 'highcharts-angular';
 import { TrainComponent } from './train/train.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -84,7 +83,6 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
     HttpClientModule,
     MatSelectModule,
     MatProgressBarModule,
-    HighchartsChartModule,
     MatSliderModule,
     MatSlideToggleModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
