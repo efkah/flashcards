@@ -1,28 +1,66 @@
-Current State
+Current State (Translate)
 <div class="bars">
-  <div class="bar bad first" [style.width]="(bad / cardsCount!) * 100 + '%'">
+  <div
+    *ngIf="bad > 0"
+    class="bar bad first"
+    [ngClass]="{
+      last:
+        bad > 0 &&
+        ratherBad <= 0 &&
+        neutral <= 0 &&
+        ratherGood <= 0 &&
+        good <= 0 &&
+        unrated <= 0
+    }"
+    [style.width]="(bad / cardsCount!) * 100 + '%'"
+  >
     {{ bad }}
   </div>
   <div
+    *ngIf="ratherBad > 0"
     class="bar rather-bad"
+    [ngClass]="{
+      last:
+        ratherBad > 0 &&
+        neutral <= 0 &&
+        ratherGood <= 0 &&
+        good <= 0 &&
+        unrated <= 0
+    }"
     [style.width]="(ratherBad / cardsCount!) * 100 + '%'"
   >
     {{ ratherBad }}
   </div>
-  <div class="bar neutral" [style.width]="(neutral / cardsCount!) * 100 + '%'">
+  <div
+    *ngIf="neutral > 0"
+    class="bar neutral"
+    [ngClass]="{
+      last: neutral > 0 && ratherGood <= 0 && good <= 0 && unrated <= 0
+    }"
+    [style.width]="(neutral / cardsCount!) * 100 + '%'"
+  >
     {{ neutral }}
   </div>
   <div
+    *ngIf="ratherGood > 0"
     class="bar rather-good"
+    [ngClass]="{ last: ratherGood > 0 && good <= 0 && unrated <= 0 }"
     [style.width]="(ratherGood / cardsCount!) * 100 + '%'"
   >
     {{ ratherGood }}
   </div>
-  <div class="bar good" [style.width]="(good / cardsCount!) * 100 + '%'">
+  <div
+    *ngIf="good > 0"
+    class="bar good"
+    [ngClass]="{ last: good > 0 && unrated <= 0 }"
+    [style.width]="(good / cardsCount!) * 100 + '%'"
+  >
     {{ good }}
   </div>
   <div
+    *ngIf="unrated > 0"
     class="bar unrated last"
+    [ngClass]="{ last: unrated > 0 }"
     [style.width]="(unrated / cardsCount!) * 100 + '%'"
   >
     {{ unrated }}

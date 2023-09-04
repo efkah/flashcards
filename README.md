@@ -36,8 +36,9 @@ function encodeImageFileAsURL(element) {
 - [x] 🚀 Feature: Move Manage to top right, remove main-navigation
 - [ ] 🚀 Feature: In place Edit for Cards while in session mode (for quick correction like wrong spelling)
 - [ ] 🚀 Feature: Make Import Export use ExcelJS
-- [ ] 🚧 AR: Replace Highcharts with d3.js
+- [x] 🚧 AR: Replace Highcharts with d3.js
 - [ ] 🚧 AR: Publish in App Store
+- [ ] 🐛 Fix: Current State in Train shows weird numbers
  
 ### Dismissed and Future Ideas
 
