@@ -33,7 +33,7 @@ function encodeImageFileAsURL(element) {
   reader.readAsDataURL(file);
 ```
 
-- [ ] 🚀 Feature: Move Manage to top right, remove main-navigation
+- [x] 🚀 Feature: Move Manage to top right, remove main-navigation
 - [ ] 🚀 Feature: In place Edit for Cards while in session mode (for quick correction like wrong spelling)
 - [ ] 🚀 Feature: Make Import Export use ExcelJS
 - [ ] 🚧 AR: Replace Highcharts with d3.js

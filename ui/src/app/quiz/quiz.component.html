@@ -94,36 +94,39 @@
     >
       <g animate="rotateInDownLeft">
         <rect
-          fill="#E94354"
+          fill="#6D8C00"
           x="0"
           y="0"
           [attr.width]="percentageGood + '%'"
           height="500"
         ></rect>
         <text
-          [attr.x]="percentageBad / 2 + '%'"
+          *ngIf="percentageGood"
+          [attr.x]="percentageGood / 2 + '%'"
           y="90%"
           dominant-baseline="middle"
           text-anchor="middle"
         >
-          {{ "quiz.quiz.selfAssessment.bad" | translate }}
+          {{ percentageGood }}%
+          {{ "quiz.quiz.selfAssessment.good" | translate }}
         </text>
       </g>
       <g animate="rotateInDownRight">
         <rect
           [attr.width]="percentageBad + '%'"
           height="500"
-          fill="#6D8C00"
+          fill="#E94354"
           [attr.x]="percentageGood + '%'"
           y="0"
         ></rect>
         <text
-          [attr.x]="percentageBad + percentageGood / 2 + '%'"
+          *ngIf="percentageBad"
+          [attr.x]="percentageGood + percentageBad / 2 + '%'"
           y="90%"
           dominant-baseline="middle"
           text-anchor="middle"
         >
-          {{ "quiz.quiz.selfAssessment.good" | translate }}
+          {{ percentageBad }}% {{ "quiz.quiz.selfAssessment.bad" | translate }}
         </text>
       </g>
     </svg>
