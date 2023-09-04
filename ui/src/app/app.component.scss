@@ -24,6 +24,18 @@
     }
   }
 
+  .settings {
+    position: absolute;
+    padding: 12px;
+    margin-right: 4px;
+    right: 0;
+    top: 0;
+
+    button.mat-hidden {
+      display: none;
+    }
+  }
+
   .toolbar {
     grid-area: toolbar;
     display: grid;
@@ -37,18 +49,6 @@
 
     button {
       margin: auto;
-    }
-
-    .toolbar-entry {
-      margin: auto;
-      text-align: center;
-      user-select: none;
-
-      div {
-        font-size: small;
-        font-weight: 400;
-        margin-top: -12px;
-      }
     }
   }
 }
