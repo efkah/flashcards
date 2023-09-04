@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'decks/:deck_id/cards/:card_id/edit', component: CardEditComponent },
   { path: 'insights', component: InsightsComponent },
   { path: 'manage', component: ManageComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
