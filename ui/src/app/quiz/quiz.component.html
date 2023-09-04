@@ -87,9 +87,49 @@
   class="container end"
 >
   <div class="info">
-    <figure class="highcharts-figure">
+    <!-- <figure class="highcharts-figure">
       <div id="container"></div>
-    </figure>
+    </figure> -->
+    <svg
+      viewBox="0 0 500 500"
+      xmlns="http://www.w3.org/2000/svg"
+      class="figure"
+    >
+      <g animate="rotateInDownLeft">
+        <rect
+          fill="#E94354"
+          x="0"
+          y="0"
+          [attr.width]="percentageGood + '%'"
+          height="500"
+        ></rect>
+        <text
+          [attr.x]="percentageBad / 2 + '%'"
+          y="90%"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          {{ "quiz.quiz.selfAssessment.bad" | translate }}
+        </text>
+      </g>
+      <g animate="rotateInDownRight">
+        <rect
+          [attr.width]="percentageBad + '%'"
+          height="500"
+          fill="#6D8C00"
+          [attr.x]="percentageGood + '%'"
+          y="0"
+        ></rect>
+        <text
+          [attr.x]="percentageBad + percentageGood / 2 + '%'"
+          y="90%"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          {{ "quiz.quiz.selfAssessment.good" | translate }}
+        </text>
+      </g>
+    </svg>
     <p>{{ "quiz.end.hint1" | translate }}</p>
     <p>{{ "quiz.end.hint2" | translate : { time } }}</p>
   </div>

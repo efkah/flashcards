@@ -6,7 +6,6 @@ import { Card } from '../_dto/Card';
 import { Deck } from '../_dto/Deck';
 import { Assessment, TrainInsight } from '../_dto/Insights';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { pick } from 'highcharts';
 
 @Component({
   selector: 'app-train',

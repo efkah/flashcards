@@ -4,7 +4,6 @@ import { CardService } from '../services/card.service';
 import { DeckService } from '../services/deck.service';
 import { Card } from '../_dto/Card';
 import { Deck } from '../_dto/Deck';
-import * as Highcharts from 'highcharts';
 import { TranslateService } from '@ngx-translate/core';
 import { StopwatchService } from '../services/stopwatch.service';
 
@@ -24,6 +23,9 @@ export class QuizComponent implements OnInit {
   currentCard?: Card;
   time: number = 0;
   quizData: any[] = [];
+
+  percentageGood = 0;
+  percentageBad = 0;
 
   constructor(
     private readonly cardService: CardService,
@@ -77,54 +79,13 @@ export class QuizComponent implements OnInit {
     this.state = 'end';
     this.stopwatchService.clear();
 
-    const chartOptions: Highcharts.Options = {
-      chart: {
-        backgroundColor: 'rgba(0,0,0,0)',
-        plotBorderWidth: undefined,
-        plotShadow: false,
-        type: 'pie',
-      },
-      title: {
-        text: '',
-        align: 'left',
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            distance: -34,
-          },
-        },
-      },
-      series: [
-        {
-          colorByPoint: true,
-          data: [
-            {
-              name: this.quizData.some((x) => x.answer === false)
-                ? this.translateService.instant('quiz.quiz.selfAssessment.bad')
-                : '',
-              y: this.quizData.filter((x) => x.answer === false).length,
-              // @ts-ignore
-              sliced: true,
-              color: '#E94354',
-            },
-            {
-              name: this.quizData.some((x) => x.answer === true)
-                ? this.translateService.instant('quiz.quiz.selfAssessment.good')
-                : '',
-              y: this.quizData.filter((x) => x.answer === true).length,
-              color: '#6D8C00',
-            },
-          ],
-        },
-      ],
-      credits: {
-        enabled: false,
-      },
-    };
-    Highcharts.chart('container', chartOptions);
+    this.percentageBad =
+      (this.quizData.filter((x) => x.answer === false).length /
+        this.quizData.length) *
+      100;
+    this.percentageGood =
+      (this.quizData.filter((x) => x.answer === true).length /
+        this.quizData.length) *
+      100;
   }
 }
