@@ -92,42 +92,69 @@
       xmlns="http://www.w3.org/2000/svg"
       class="figure"
     >
-      <g animate="rotateInDownLeft">
+      <!-- <g animate="rotateInDownLeft"> -->
+      <g style="transform-origin: bottom left">
         <rect
-          fill="#6D8C00"
+          fill="#E94354"
           x="0"
           y="0"
-          [attr.width]="percentageGood + '%'"
-          height="500"
-        ></rect>
-        <text
-          *ngIf="percentageGood"
-          [attr.x]="percentageGood / 2 + '%'"
-          y="90%"
-          dominant-baseline="middle"
-          text-anchor="middle"
-        >
-          {{ percentageGood }}%
-          {{ "quiz.quiz.selfAssessment.good" | translate }}
-        </text>
-      </g>
-      <g animate="rotateInDownRight">
-        <rect
           [attr.width]="percentageBad + '%'"
           height="500"
-          fill="#E94354"
-          [attr.x]="percentageGood + '%'"
-          y="0"
         ></rect>
         <text
           *ngIf="percentageBad"
-          [attr.x]="percentageGood + percentageBad / 2 + '%'"
+          [attr.x]="percentageBad / 2 + '%'"
           y="90%"
           dominant-baseline="middle"
           text-anchor="middle"
         >
-          {{ percentageBad }}% {{ "quiz.quiz.selfAssessment.bad" | translate }}
+          {{ percentageBad | number : ".1-1" }}%
+          {{ "quiz.quiz.selfAssessment.bad" | translate }}
         </text>
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="-90"
+          to="0"
+          begin="indefinite"
+          dur="800ms"
+          fill="freeze"
+          keyTimes="0; 1"
+          calcMode="spline"
+          keySplines=".25 0 1 .7"
+        />
+      </g>
+      <!-- <g animate="rotateInDownRight"> -->
+      <g style="transform-origin: bottom right">
+        <rect
+          [attr.width]="percentageGood + '%'"
+          height="500"
+          fill="#6D8C00"
+          [attr.x]="percentageBad + '%'"
+          y="0"
+        ></rect>
+        <text
+          *ngIf="percentageGood"
+          [attr.x]="percentageBad + percentageGood / 2 + '%'"
+          y="90%"
+          dominant-baseline="middle"
+          text-anchor="middle"
+        >
+          {{ percentageGood | number : ".1-1" }}%
+          {{ "quiz.quiz.selfAssessment.good" | translate }}
+        </text>
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="90"
+          to="0"
+          begin="indefinite"
+          dur="800ms"
+          fill="freeze"
+          keyTimes="0; 1"
+          calcMode="spline"
+          keySplines=".25 0 1 .7"
+        />
       </g>
     </svg>
     <p>{{ "quiz.end.hint1" | translate }}</p>

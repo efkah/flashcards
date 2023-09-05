@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../services/card.service';
 import { DeckService } from '../services/deck.service';
 import { Card } from '../_dto/Card';
 import { Deck } from '../_dto/Deck';
-import { TranslateService } from '@ngx-translate/core';
 import { StopwatchService } from '../services/stopwatch.service';
 
 @Component({
@@ -31,7 +30,6 @@ export class QuizComponent implements OnInit {
     private readonly cardService: CardService,
     private readonly deckService: DeckService,
     private readonly activatedRoute: ActivatedRoute,
-    private readonly translateService: TranslateService,
     private readonly stopwatchService: StopwatchService
   ) {}
 
@@ -87,5 +85,11 @@ export class QuizComponent implements OnInit {
       (this.quizData.filter((x) => x.answer === true).length /
         this.quizData.length) *
       100;
+
+    document
+      .querySelectorAll('animateTransform[begin=indefinite]')
+      .forEach((e: Element) => {
+        (e as SVGAnimateElement).beginElement();
+      });
   }
 }
