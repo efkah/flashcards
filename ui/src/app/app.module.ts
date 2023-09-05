@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DeckListComponent } from './decks/deck-list.component';
-import { InsightsComponent } from './insights/insights.component';
 import { ManageComponent } from './manage/manage.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,7 +54,6 @@ const CLIENT_ID = environment.googleSocialLogin.clientId;
   declarations: [
     AppComponent,
     DeckListComponent,
-    InsightsComponent,
     ManageComponent,
     DeckEditComponent,
     CardViewComponent,

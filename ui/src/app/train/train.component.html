@@ -73,8 +73,20 @@
   <div class="flashcard rotate-y" [ngClass]="{ flipped: flipped }">
     <mat-card class="front" [ngClass]="{ 'mat-elevation-z0': flipped }">
       <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title> {{ "cardView.question" | translate }}</mat-card-title>
+        <button
+          class="header-link"
+          mat-card-avatar
+          routerLink="/decks/{{ deck_id }}/cards/{{ currentCard!.id }}/edit"
+          routerLinkActive
+          #manage="routerLinkActive"
+          mat-icon-button
+          attr.aria-label="{{ 'deckEdit.actions.edit' | translate }}"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <mat-card-title>
+          {{ "cardView.question" | translate }}
+        </mat-card-title>
         <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
@@ -98,7 +110,17 @@
     </mat-card>
     <mat-card class="back" [ngClass]="{ 'mat-elevation-z0': !flipped }">
       <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
+        <button
+          class="header-link"
+          mat-card-avatar
+          routerLink="/decks/{{ deck_id }}/cards/{{ currentCard!.id }}/edit"
+          routerLinkActive
+          #manage="routerLinkActive"
+          mat-icon-button
+          attr.aria-label="{{ 'deckEdit.actions.edit' | translate }}"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
         <mat-card-title> {{ "cardView.answer" | translate }}</mat-card-title>
         <mat-card-subtitle>{{ deck?.name }}</mat-card-subtitle>
       </mat-card-header>

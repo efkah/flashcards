@@ -6,7 +6,6 @@ import { DeckEditComponent } from './decks/deck-edit/deck-edit.component';
 import { DeckHelpComponent } from './decks/deck-help/deck-help.component';
 import { DeckListComponent } from './decks/deck-list.component';
 import { HomeComponent } from './home/home.component';
-import { InsightsComponent } from './insights/insights.component';
 import { ManageComponent } from './manage/manage.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { TrainComponent } from './train/train.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'decks/:deck_id/train', component: TrainComponent },
   { path: 'decks/:deck_id/cards/:card_id', component: CardViewComponent },
   { path: 'decks/:deck_id/cards/:card_id/edit', component: CardEditComponent },
-  { path: 'insights', component: InsightsComponent },
   { path: 'manage', component: ManageComponent },
   { path: '**', redirectTo: '' },
 ];
