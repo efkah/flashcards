@@ -27,11 +27,19 @@ export class TrainInsightsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.info('change', changes['data'].firstChange);
-    this.bad = this.data.filter((x) => x.assessment === 4).length;
-    this.ratherBad = this.data.filter((x) => x.assessment === 3).length;
-    this.neutral = this.data.filter((x) => x.assessment === 2).length;
-    this.ratherGood = this.data.filter((x) => x.assessment === 1).length;
-    this.good = this.data.filter((x) => x.assessment === 0).length;
-    this.unrated = this.cardsCount ? this.cardsCount - this.data.length : 0;
+
+    const distinctData: TrainInsight[] = [];
+    this.data.reverse().forEach((x: TrainInsight) => {
+      if (distinctData.every((y: TrainInsight) => y.cardId !== x.cardId)) {
+        distinctData.push(x);
+      }
+    });
+
+    this.bad = distinctData.filter((x) => x.assessment === 4).length;
+    this.ratherBad = distinctData.filter((x) => x.assessment === 3).length;
+    this.neutral = distinctData.filter((x) => x.assessment === 2).length;
+    this.ratherGood = distinctData.filter((x) => x.assessment === 1).length;
+    this.good = distinctData.filter((x) => x.assessment === 0).length;
+    this.unrated = this.cardsCount ? this.cardsCount - distinctData.length : 0;
   }
 }

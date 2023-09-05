@@ -34,11 +34,12 @@ function encodeImageFileAsURL(element) {
 ```
 
 - [x] 🚀 Feature: Move Manage to top right, remove main-navigation
-- [ ] 🚀 Feature: In place Edit for Cards while in session mode (for quick correction like wrong spelling)
+- [x] 🚀 Feature: Quick Link for Edit in Training Mode (for quick correction like wrong spelling)
 - [ ] 🚀 Feature: Make Import Export use ExcelJS
 - [x] 🚧 AR: Replace Highcharts with plain svg or d3.js
 - [ ] 🚧 AR: Publish in App Store
-- [ ] 🐛 Fix: Current State in Train shows weird numbers
+- [x] 🐛 Fix: Current State in Train shows weird numbers
+- [ ] 🐛 Fix: Missing Questions in Train
  
 ### Dismissed and Future Ideas
 
